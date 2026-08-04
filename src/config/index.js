@@ -1,5 +1,7 @@
-const path = require('path');
-require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+// Try loading .env file locally (ignored in production cloud environments where process.env is set)
+try {
+  require('dotenv').config({ path: path.join(__dirname, '../../.env') });
+} catch (_) {}
 
 const config = {
   PORT: process.env.PORT || 3000,
@@ -34,7 +36,8 @@ const requiredKeys = ['TELEGRAM_BOT_TOKEN', 'TELEGRAM_CHAT_ID', 'NOTION_TOKEN', 
 const missing = requiredKeys.filter(key => !config[key]);
 
 if (missing.length > 0) {
-  throw new Error(`[Config Error] Missing required environment variables in .env: ${missing.join(', ')}`);
+  console.error(`❌ [Config Error] Missing required environment variables on Render/Cloud: ${missing.join(', ')}`);
+  console.error(`Please add these variables in your Render Dashboard -> Environment Variables.`);
 }
 
 module.exports = config;

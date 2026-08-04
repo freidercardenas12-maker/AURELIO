@@ -49,8 +49,9 @@ app.post('/webhook', (req, res) => {
   }
 });
 
-app.listen(config.PORT, () => {
-  logger.info(`🚀 [Aurelio Server] Active on port ${config.PORT} (Health Check & Webhook ready)`);
+const host = '0.0.0.0';
+app.listen(config.PORT, host, () => {
+  logger.info(`🚀 [Aurelio Server] Active on port ${config.PORT} (Bound to ${host}, Health Check & Webhook ready)`);
 });
 
 
