@@ -1,5 +1,4 @@
-const express = require('express');
-const PQueue = require('p-queue').default || require('p-queue');
+const SimpleQueue = require('./utils/queue');
 const config = require('./config');
 const logger = require('./utils/logger');
 const { registerBotCommands, pollTelegram, downloadFile, sendMsg, sendVoiceNote, makeRequest } = require('./services/telegram');
@@ -14,7 +13,10 @@ const { createReceiptEntry } = require('./services/notion-attachments');
 const { generateCalendarLink } = require('./services/calendar');
 const { startJobs, morningBriefing, syncCRM } = require('./jobs/scheduler');
 
-// Express App for health monitoring
+// SimpleQueue for sequential message processing (zero race conditions, 100% CJS compatible)
+const messageQueue = new SimpleQueue(1);
+
+// Express App for health monitoring & webhooks
 const app = express();
 app.use(express.json());
 
@@ -51,8 +53,7 @@ app.listen(config.PORT, () => {
   logger.info(`🚀 [Aurelio Server] Active on port ${config.PORT} (Health Check & Webhook ready)`);
 });
 
-// PQueue for sequential message processing (zero race conditions)
-const messageQueue = new PQueue({ concurrency: 1 });
+
 
 async function processTextMessage(text, respondWithVoice = false) {
   if (text.startsWith('/')) {
