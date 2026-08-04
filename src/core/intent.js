@@ -3,8 +3,9 @@ const { getTodayStr, getTomorrowStr } = require('../utils/dates');
 const logger = require('../utils/logger');
 
 async function detectIntent(userMessage) {
-  const cleanMsg = userMessage.toLowerCase().replace(/^aurelio[,\s.]*/i, '').trim();
-  if (/^(hola|buenas|buenos d[ií]as|buenas tardes|buenas noches|como estas|qu[eé] tal|saludos)/i.test(cleanMsg) && cleanMsg.length < 30) {
+  const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|comprar|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(userMessage);
+  const containsGreeting = /(hola|buen|buenas|d[ií]as|tardes|noches|como estas|c[oó]mo est[aá]s|saludos|qu[eé] tal)/i.test(userMessage);
+  if (containsGreeting && !isExplicitDataQuery) {
     return { i: 'CONVERSACION' };
   }
 

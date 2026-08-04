@@ -19,9 +19,9 @@ FRENTE LABORAL:
 `;
 
 async function geminiChat(userMessage, intentType = 'CONVERSACION') {
-  // Strip leading "Aurelio," or "Aurelio " and punctuation
-  const cleanMsg = userMessage.toLowerCase().replace(/^aurelio[,\s.]*/i, '').trim();
-  const isGreetingOrCasual = /^(hola|buenas|buenos d[ií]as|buenas tardes|buenas noches|como estas|qu[eé] tal|saludos|quien eres)/i.test(cleanMsg) || (cleanMsg.length < 15 && intentType === 'CONVERSACION');
+  const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|comprar|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(userMessage);
+  const containsGreeting = /(hola|buen|buenas|d[ií]as|tardes|noches|como estas|c[oó]mo est[aá]s|saludos|qu[eé] tal)/i.test(userMessage);
+  const isGreetingOrCasual = (containsGreeting && !isExplicitDataQuery) || (userMessage.length < 20 && !isExplicitDataQuery);
 
   let notionContext = '';
   if (!isGreetingOrCasual && intentType !== 'CONVERSACION') {
