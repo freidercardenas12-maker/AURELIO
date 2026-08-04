@@ -142,16 +142,37 @@ async function registerBotCommands() {
   }
 }
 
+async function deleteWebhook() {
+  try {
+    const url = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/deleteWebhook?drop_pending_updates=false`;
+    const res = await makeRequest(url, 'GET', {});
+    if (res.body?.ok) {
+      logger.info('✅ Telegram Webhook cleared for resilient long-polling.');
+    }
+  } catch (e) {
+    logger.error(`[Telegram deleteWebhook Error]: ${e.message}`);
+  }
+}
+
 async function pollTelegram(onMessage, onVoice, onPhoto) {
   const url = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/getUpdates?offset=${lastUpdateId + 1}&timeout=3`;
   try {
     const res = await makeRequest(url, 'GET', {});
     if (res.statusCode !== 200) return;
 
+    const configuredChatId = String(config.TELEGRAM_CHAT_ID || '').trim().replace(/['"]/g, '');
+
     for (const update of (res.body.result || [])) {
       lastUpdateId = update.update_id;
       const msg = update.message;
-      if (!msg || msg.chat.id.toString() !== config.TELEGRAM_CHAT_ID) continue;
+      if (!msg) continue;
+
+      const incomingChatId = String(msg.chat?.id || '').trim();
+
+      if (configuredChatId && incomingChatId !== configuredChatId) {
+        logger.warn(`[Telegram Poll Ignore] Chat ID mismatch: incoming=${incomingChatId}, expected=${configuredChatId}`);
+        continue;
+      }
 
       if (msg.text) {
         logger.info(`[Telegram Bot] Text received: "${msg.text}"`);
@@ -178,5 +199,6 @@ module.exports = {
   downloadFile,
   registerBotCommands,
   pollTelegram,
+  deleteWebhook,
   makeRequest
 };

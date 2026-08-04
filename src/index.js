@@ -1,7 +1,7 @@
 const SimpleQueue = require('./utils/queue');
 const config = require('./config');
 const logger = require('./utils/logger');
-const { registerBotCommands, pollTelegram, downloadFile, sendMsg, sendVoiceNote, makeRequest } = require('./services/telegram');
+const { registerBotCommands, pollTelegram, deleteWebhook, downloadFile, sendMsg, sendVoiceNote, makeRequest } = require('./services/telegram');
 const { detectIntent } = require('./core/intent');
 const { geminiChat } = require('./core/chat');
 const { geminiVisionCall } = require('./services/gemini');
@@ -224,6 +224,7 @@ async function processPhotoMessage(fileId, caption) {
 async function main() {
   logger.info('🏛️ [Aurelio Bot v2.0 — 10/10] Initializing all systems...');
 
+  await deleteWebhook();
   await registerBotCommands();
   startJobs();
 
