@@ -87,6 +87,22 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
+  const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|comprar|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(text);
+  const containsGreeting = /(hola|buen|buenas|d[ií]as|tardes|noches|como estas|c[oó]mo est[aá]s|saludos|qu[eé] tal)/i.test(text);
+  const isGreetingOrCasual = (containsGreeting && !isExplicitDataQuery) || (text.length < 25 && !isExplicitDataQuery);
+
+  if (isGreetingOrCasual) {
+    logger.info(`[Greeting Interceptor] Short executive greeting triggered for: "${text}"`);
+    const greetings = [
+      'Buenas tardes, Sr. Cárdenas. Me encuentro totalmente enfocado, operativo y listo a sus órdenes. ¿En qué le puedo colaborar el día de hoy?',
+      'Buenas tardes, Freider. Todo en orden y bajo control. ¿En qué asunto o frente de negocio enfocaremos nuestra atención en este momento?',
+      'Hola, Sr. Cárdenas. Sistema operativo al cien por ciento y listo para la jornada. ¿En qué frente requiere acción inmediata?'
+    ];
+    const reply = greetings[Math.floor(Math.random() * greetings.length)];
+    await sendResponse(reply, respondWithVoice);
+    return;
+  }
+
   const intent = await detectIntent(text);
   logger.info(`[Intent Classifier] Detected: ${intent.i}`);
 
