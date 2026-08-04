@@ -127,7 +127,7 @@ async function generateSpeechBuffer(text) {
     })();
 
     const timeoutPromise = new Promise((_, reject) =>
-      setTimeout(() => reject(new Error('EdgeTTS Timeout (8s)')), 8000)
+      setTimeout(() => reject(new Error('EdgeTTS Timeout (45s)')), 45000)
     );
 
     const buffer = await Promise.race([edgePromise, timeoutPromise]);
