@@ -23,9 +23,15 @@ async function geminiChat(userMessage, intentType = 'CONVERSACION') {
   const containsGreeting = /(hola|buen|buenas|d[ií]as|tardes|noches|como estas|c[oó]mo est[aá]s|saludos|qu[eé] tal)/i.test(userMessage);
   const isGreetingOrCasual = (containsGreeting && !isExplicitDataQuery) || (userMessage.length < 20 && !isExplicitDataQuery);
 
-  let notionContext = '';
-  if (!isGreetingOrCasual && intentType !== 'CONVERSACION') {
-    notionContext = await buildContext(intentType);
+  if (isGreetingOrCasual) {
+    const greetings = [
+      'Buenas tardes, Sr. Cárdenas. Me encuentro totalmente enfocado, operativo y listo a sus órdenes. ¿En qué le puedo colaborar el día de hoy?',
+      'Buenas tardes, Freider. Todo en orden y bajo control. ¿En qué asunto o frente de negocio enfocaremos nuestra atención en este momento?',
+      'Hola, Sr. Cárdenas. Sistema operativo al cien por ciento y listo para la jornada. ¿En qué frente requiere acción inmediata?'
+    ];
+    const finalReply = greetings[Math.floor(Math.random() * greetings.length)];
+    addMessage(userMessage, finalReply);
+    return finalReply;
   }
 
   const memoryContext = getMemoryContext();
