@@ -119,6 +119,61 @@ async function sendVoiceNote(audioBuffer) {
   });
 }
 
+async function sendDocument(docBuffer, filename = 'informe_ejecutivo.pdf', caption = '') {
+  if (!docBuffer) return;
+  const chatId = getCleanChatId();
+  return new Promise((resolve) => {
+    try {
+      const boundary = '----AurelioDoc' + Date.now();
+      const payloadHeader = Buffer.from(
+        `--${boundary}\r\n` +
+        `Content-Disposition: form-data; name="chat_id"\r\n\r\n` +
+        `${chatId}\r\n` +
+        `--${boundary}\r\n` +
+        `Content-Disposition: form-data; name="caption"\r\n\r\n` +
+        `${caption}\r\n` +
+        `--${boundary}\r\n` +
+        `Content-Disposition: form-data; name="document"; filename="${filename}"\r\n` +
+        `Content-Type: application/pdf\r\n\r\n`
+      );
+      const payloadFooter = Buffer.from(`\r\n--${boundary}--\r\n`);
+      const fullBody = Buffer.concat([payloadHeader, docBuffer, payloadFooter]);
+
+      const options = {
+        hostname: 'api.telegram.org',
+        path: `/bot${config.TELEGRAM_BOT_TOKEN}/sendDocument`,
+        method: 'POST',
+        headers: {
+          'Content-Type': `multipart/form-data; boundary=${boundary}`,
+          'Content-Length': fullBody.length
+        }
+      };
+
+      const req = https.request(options, (res) => {
+        let data = '';
+        res.on('data', c => data += c);
+        res.on('end', () => {
+          if (res.statusCode === 200) {
+            logger.info(`✅ [Telegram Document] PDF sent successfully: ${filename}`);
+          } else {
+            logger.error(`[Telegram Document] sendDocument HTTP ${res.statusCode}: ${data.substring(0, 200)}`);
+          }
+          resolve();
+        });
+      });
+      req.on('error', (e) => {
+        logger.error(`[Telegram Document] sendDocument request error: ${e.message}`);
+        resolve();
+      });
+      req.write(fullBody);
+      req.end();
+    } catch (e) {
+      logger.error(`[Telegram Document] sendDocument exception: ${e.message}`);
+      resolve();
+    }
+  });
+}
+
 async function registerBotCommands() {
   const commands = [
     { command: 'resumen',     description: '🧠 Briefing ejecutivo del día' },
@@ -133,6 +188,7 @@ async function registerBotCommands() {
     { command: 'terminar',    description: '✅ Marcar tarea como Done' },
     { command: 'gasto',       description: '✍️ Registrar gasto en finanzas' },
     { command: 'sincronizar', description: '🔄 Sincronizar CRM → Agenda' },
+    { command: 'reporte',     description: '📄 Generar Informe Ejecutivo en PDF' },
     { command: 'ayuda',       description: '🏛️ Ver todos los comandos' }
   ];
   try {
@@ -202,6 +258,7 @@ async function pollTelegram(onMessage, onVoice, onPhoto) {
 module.exports = {
   sendMsg,
   sendVoiceNote,
+  sendDocument,
   downloadFile,
   registerBotCommands,
   pollTelegram,

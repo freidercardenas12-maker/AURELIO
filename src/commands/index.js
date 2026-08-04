@@ -6,7 +6,8 @@ const { handleClientes } = require('./clientes');
 const { handleNegocios } = require('./negocios');
 const { handleHabito, handleHecho } = require('./habitos');
 const { handleStartHelp } = require('./resumen');
-const { sendMsg } = require('../services/telegram');
+const { sendMsg, sendDocument } = require('../services/telegram');
+const { generateExecutivePDF } = require('../services/pdf');
 const logger = require('../utils/logger');
 
 async function handleCommand(text, jobsMap = {}) {
@@ -81,6 +82,17 @@ async function handleCommand(text, jobsMap = {}) {
     await sendMsg('🔄 *Sincronizando CRM de Chorizos con tu Agenda...*');
     if (jobsMap.syncCRM) await jobsMap.syncCRM();
     await sendMsg('✅ *Sincronización completada.*');
+    return;
+  }
+
+  if (trimmed.startsWith('/reporte')) {
+    await sendMsg('📄 *Generando Informe Ejecutivo en PDF...*');
+    const pdfBuf = await generateExecutivePDF();
+    if (pdfBuf) {
+      await sendDocument(pdfBuf, `Aurelio_Informe_Ejecutivo_${new Date().toISOString().split('T')[0]}.pdf`, '📄 *Informe Ejecutivo en PDF — Aurelio v3.0*');
+    } else {
+      await sendMsg('❌ Error al generar el informe en PDF.');
+    }
     return;
   }
 
