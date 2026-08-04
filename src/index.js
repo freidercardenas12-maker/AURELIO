@@ -66,6 +66,20 @@ app.listen(config.PORT, host, () => {
 
 
 
+async function sendResponse(replyText, respondWithVoice) {
+  await sendMsg(replyText);
+  if (respondWithVoice) {
+    logger.info(`[Voice Note Generator] Synthesizing audio note (${replyText.length} chars)...`);
+    const speechBuffer = await generateSpeechBuffer(replyText);
+    if (speechBuffer) {
+      await sendVoiceNote(speechBuffer);
+      logger.info('[Voice Note Generator] Voice note sent successfully.');
+    } else {
+      logger.warn('[Voice Note Generator] Speech buffer returned null.');
+    }
+  }
+}
+
 async function processTextMessage(text, respondWithVoice = false) {
   if (text.startsWith('/')) {
     await handleCommand(text, { morningBriefing, syncCRM });
@@ -84,7 +98,7 @@ async function processTextMessage(text, respondWithVoice = false) {
     const reply = created
       ? `✅ *Tarea Creada en Notion*\n📌 *${intent.tarea}*\n📆 Entrega: ${intent.fecha}`
       : '❌ Error al crear la tarea en Notion.';
-    await sendMsg(reply);
+    await sendResponse(reply, respondWithVoice);
     return;
   }
 
@@ -95,6 +109,7 @@ async function processTextMessage(text, respondWithVoice = false) {
       'Estado': { select: { name: 'Pendiente' } }
     });
 
+    let reply = '❌ Error al agendar en Notion.';
     if (created) {
       const calLink = generateCalendarLink(
         intent.actividad,
@@ -102,12 +117,9 @@ async function processTextMessage(text, respondWithVoice = false) {
         intent.fecha,
         `Agendado por Aurelio el ${new Date().toLocaleDateString('es-CO')}`
       );
-      await sendMsg(
-        `📆 *Evento Agendado en Notion*\n📌 *${intent.actividad}*\n📅 Fecha: ${intent.fecha}\n\n📅 [Agregar a Google Calendar](${calLink})`
-      );
-    } else {
-      await sendMsg('❌ Error al agendar en Notion.');
+      reply = `📆 *Evento Agendado en Notion*\n📌 *${intent.actividad}*\n📅 Fecha: ${intent.fecha}\n\n📅 [Agregar a Google Calendar](${calLink})`;
     }
+    await sendResponse(reply, respondWithVoice);
     return;
   }
 
@@ -122,21 +134,13 @@ async function processTextMessage(text, respondWithVoice = false) {
     const reply = created
       ? `💸 *Gasto Registrado en Notion*\n✍️ ${intent.concepto || 'Gasto'}\n💰 $${intent.monto.toLocaleString('es-CO')} COP`
       : '❌ Error al registrar gasto.';
-    await sendMsg(reply);
+    await sendResponse(reply, respondWithVoice);
     return;
   }
 
-  // Conversación libre — responder con texto y (si vino de voz) también con nota de voz
+  // Conversación libre o consultas
   const reply = await geminiChat(text, intent.i);
-  await sendMsg(reply);
-
-  // Si el mensaje vino de nota de voz, responder también con voz
-  if (respondWithVoice) {
-    const speechBuffer = await generateSpeechBuffer(reply);
-    if (speechBuffer) {
-      await sendVoiceNote(speechBuffer);
-    }
-  }
+  await sendResponse(reply, respondWithVoice);
 }
 
 async function processVoiceMessage(fileId) {
