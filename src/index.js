@@ -24,6 +24,7 @@ app.use(express.json());
 app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
+    version: 'v3.0_greeting_interceptor_active',
     service: 'Aurelio Bot v2.0 — 10/10 PERFECTO',
     uptime: Math.floor(process.uptime()),
     capabilities: ['text', 'voice', 'vision', 'tts', 'whatsapp', 'calendar', 'notion-attachments', 'memory', 'webhook'],
