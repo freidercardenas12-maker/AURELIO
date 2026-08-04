@@ -1,7 +1,18 @@
-// Try loading .env file locally (ignored in production cloud environments where process.env is set)
-try {
-  require('dotenv').config({ path: path.join(__dirname, '../../.env') });
-} catch (_) {}
+const path = require('path');
+const fs = require('fs');
+
+const envPaths = [
+  path.resolve(process.cwd(), '.env'),
+  path.resolve(__dirname, '../../.env'),
+  path.resolve(__dirname, '../.env')
+];
+
+for (const p of envPaths) {
+  if (fs.existsSync(p)) {
+    require('dotenv').config({ path: p });
+    break;
+  }
+}
 
 const config = {
   PORT: process.env.PORT || 3000,

@@ -1,3 +1,4 @@
+const express = require('express');
 const SimpleQueue = require('./utils/queue');
 const config = require('./config');
 const logger = require('./utils/logger');
