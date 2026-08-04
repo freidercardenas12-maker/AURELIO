@@ -36,15 +36,25 @@ app.post('/webhook', (req, res) => {
   const update = req.body;
   if (!update || !update.message) return;
   const msg = update.message;
-  if (msg.chat.id.toString() !== config.TELEGRAM_CHAT_ID) return;
+
+  const configuredChatId = String(config.TELEGRAM_CHAT_ID || '').trim().replace(/['"]/g, '');
+  const incomingChatId = String(msg.chat?.id || '').trim();
+
+  if (configuredChatId && incomingChatId !== configuredChatId) {
+    logger.warn(`[Webhook Ignore] Chat ID mismatch: incoming=${incomingChatId}, expected=${configuredChatId}`);
+    return;
+  }
 
   if (msg.text) {
+    logger.info(`[Webhook Telegram] Text received: "${msg.text}"`);
     messageQueue.add(() => processTextMessage(msg.text, false));
   } else if (msg.voice || msg.audio) {
-    const fileId = (msg.voice || msg.audio).file_id;
-    messageQueue.add(() => processVoiceMessage(fileId));
+    const audioObj = msg.voice || msg.audio;
+    logger.info(`[Webhook Telegram] Audio received: ${audioObj.file_id}`);
+    messageQueue.add(() => processVoiceMessage(audioObj.file_id));
   } else if (msg.photo && msg.photo.length > 0) {
     const fileId = msg.photo[msg.photo.length - 1].file_id;
+    logger.info(`[Webhook Telegram] Photo received: ${fileId}`);
     messageQueue.add(() => processPhotoMessage(fileId, msg.caption || ''));
   }
 });
