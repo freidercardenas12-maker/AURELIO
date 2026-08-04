@@ -47,15 +47,20 @@ function cleanMarkdownForTelegram(text) {
     .replace(/\*\*(.*?)\*\*/g, '*$1*');
 }
 
+function getCleanChatId() {
+  return String(config.TELEGRAM_CHAT_ID || '').trim().replace(/['"]/g, '');
+}
+
 async function sendMsg(text) {
   const url = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/sendMessage`;
   const formattedText = cleanMarkdownForTelegram(text);
-  const body = { chat_id: config.TELEGRAM_CHAT_ID, text: formattedText, parse_mode: 'Markdown' };
+  const chatId = getCleanChatId();
+  const body = { chat_id: chatId, text: formattedText, parse_mode: 'Markdown' };
   try {
     const res = await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, body);
     if (res.statusCode !== 200) {
       // Fallback without parse_mode if formatting error occurs
-      await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, { chat_id: config.TELEGRAM_CHAT_ID, text });
+      await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, { chat_id: chatId, text });
     }
   } catch (e) {
     logger.error(`[Telegram Service] Error sending message: ${e.message}`);
@@ -64,13 +69,14 @@ async function sendMsg(text) {
 
 async function sendVoiceNote(audioBuffer) {
   if (!audioBuffer) return;
+  const chatId = getCleanChatId();
   return new Promise((resolve) => {
     try {
       const boundary = '----AurelioVoice' + Date.now();
       const payloadHeader = Buffer.from(
         `--${boundary}\r\n` +
         `Content-Disposition: form-data; name="chat_id"\r\n\r\n` +
-        `${config.TELEGRAM_CHAT_ID}\r\n` +
+        `${chatId}\r\n` +
         `--${boundary}\r\n` +
         `Content-Disposition: form-data; name="voice"; filename="aurelio.mp3"\r\n` +
         `Content-Type: audio/mpeg\r\n\r\n`
