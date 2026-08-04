@@ -3,6 +3,11 @@ const { getTodayStr, getTomorrowStr } = require('../utils/dates');
 const logger = require('../utils/logger');
 
 async function detectIntent(userMessage) {
+  const cleanMsg = userMessage.toLowerCase().replace(/^aurelio[,\s.]*/i, '').trim();
+  if (/^(hola|buenas|buenos d[ií]as|buenas tardes|buenas noches|como estas|qu[eé] tal|saludos)/i.test(cleanMsg) && cleanMsg.length < 30) {
+    return { i: 'CONVERSACION' };
+  }
+
   const todayStr = getTodayStr();
   const tomorrowStr = getTomorrowStr();
 

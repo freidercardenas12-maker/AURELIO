@@ -19,9 +19,9 @@ FRENTE LABORAL:
 `;
 
 async function geminiChat(userMessage, intentType = 'CONVERSACION') {
-  // CRITICAL FIX: Only fetch Notion database context when explicitly requested or needed!
-  // If it's just a greeting or conversational chat, don't dump the whole database.
-  const isGreetingOrCasual = /^(hola|buenas|buenos dias|buenas tardes|buenas noches|como estas|que tal|quien eres)/i.test(userMessage.trim());
+  // Strip leading "Aurelio," or "Aurelio " and punctuation
+  const cleanMsg = userMessage.toLowerCase().replace(/^aurelio[,\s.]*/i, '').trim();
+  const isGreetingOrCasual = /^(hola|buenas|buenos d[ií]as|buenas tardes|buenas noches|como estas|qu[eé] tal|saludos|quien eres)/i.test(cleanMsg) || (cleanMsg.length < 15 && intentType === 'CONVERSACION');
 
   let notionContext = '';
   if (!isGreetingOrCasual && intentType !== 'CONVERSACION') {
