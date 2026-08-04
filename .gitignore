@@ -1,0 +1,7 @@
+node_modules/
+.env
+memory_store.json
+logs/
+*.mp3
+*.log
+.DS_Store

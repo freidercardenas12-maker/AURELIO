@@ -1,0 +1,33 @@
+{
+  "name": "aurelio-bot",
+  "version": "2.0.0",
+  "description": "Aurelio - Personal Executive Assistant & Stoic Secretary for Freider Cárdenas",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "telegram",
+    "notion",
+    "gemini",
+    "assistant",
+    "stoic"
+  ],
+  "author": "Freider Cárdenas",
+  "license": "ISC",
+  "dependencies": {
+    "@andresaya/edge-tts": "^1.8.0",
+    "@bestcodes/edge-tts": "^3.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "google-tts-api": "^2.0.2",
+    "node-edge-tts": "^1.2.10",
+    "p-queue": "^6.6.2",
+    "winston": "^3.14.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
