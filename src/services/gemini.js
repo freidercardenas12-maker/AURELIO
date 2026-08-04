@@ -2,7 +2,7 @@ const https = require('https');
 const config = require('../config');
 const logger = require('../utils/logger');
 
-const GEMINI_MODELS = ['gemini-3.1-flash-lite', 'gemini-3.5-flash-lite', 'gemini-flash-latest'];
+const GEMINI_MODELS = ['gemini-flash-latest', 'gemini-2.0-flash-lite', 'gemini-2.0-flash'];
 
 function makeRequest(url, method, headers, body = null) {
   return new Promise((resolve, reject) => {
