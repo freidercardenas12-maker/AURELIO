@@ -140,27 +140,33 @@ async function processTextMessage(text, respondWithVoice = false) {
 }
 
 async function processVoiceMessage(fileId) {
+  logger.info(`[Voice Flow] Starting processing for voice fileId: ${fileId}`);
   try {
     await sendMsg('🎙️ *Escuchando nota de voz...*');
     const getFileUrl = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/getFile?file_id=${fileId}`;
     const fileRes = await makeRequest(getFileUrl, 'GET', {});
 
     if (fileRes.statusCode !== 200 || !fileRes.body?.result?.file_path) {
+      logger.error(`[Voice Flow Error] getFile returned HTTP ${fileRes.statusCode}`);
       await sendMsg('❌ Error al obtener el archivo de voz de Telegram.');
       return;
     }
 
     const downloadUrl = `https://api.telegram.org/file/bot${config.TELEGRAM_BOT_TOKEN}/${fileRes.body.result.file_path}`;
+    logger.info(`[Voice Flow] Downloading voice note from: ${fileRes.body.result.file_path}`);
     const audioBuffer = await downloadFile(downloadUrl);
+
+    logger.info(`[Voice Flow] Transcribing ${audioBuffer.length} bytes of audio with Gemini...`);
     const transcript = await transcribeAudio(audioBuffer);
+    logger.info(`[Voice Flow] Transcript: "${transcript}"`);
 
     await sendMsg(`🗣️ *Transcripción:* _"${transcript}"_`);
 
     // respondWithVoice = true → Aurelio responde también con nota de voz
     await processTextMessage(transcript, true);
   } catch (e) {
-    logger.error(`[Voice Processing Error]: ${e.message}`);
-    await sendMsg(`❌ ${e.message}`);
+    logger.error(`[Voice Flow Fatal Error]: ${e.message}`, { stack: e.stack });
+    await sendMsg(`❌ Error procesando voz: ${e.message}`);
   }
 }
 
