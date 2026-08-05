@@ -19,7 +19,7 @@ FRENTE LABORAL:
 `;
 
 async function geminiChat(userMessage, intentType = 'CONVERSACION') {
-  const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|comprar|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(userMessage);
+  const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(userMessage);
   const containsGreeting = /(hola|buen|buenas|d[ií]as|tardes|noches|como estas|c[oó]mo est[aá]s|saludos|qu[eé] tal)/i.test(userMessage);
   const isGreetingOrCasual = (containsGreeting && !isExplicitDataQuery) || (userMessage.length < 20 && !isExplicitDataQuery);
 

@@ -153,8 +153,8 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
-  // Agente Autónomo de Cierre de Ventas y Cobro Nequi/Bancolombia
-  if (/pago|comprar|nequi|bancolombia|qr|transferir|metodo.*pago|método.*pago/i.test(text)) {
+  // Agente Autónomo de Cierre de Ventas y Cobro Nequi/Bancolombia (Sólo cuando se pide Nequi o datos de pago explícitos)
+  if (/qr nequi|datos.*pago|transferir.*nequi|cuentas.*banco/i.test(text)) {
     const { handleSalesCheckout } = require('./services/checkout');
     await handleSalesCheckout(text);
     return;
@@ -181,7 +181,7 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
-  const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|comprar|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(text);
+  const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(text);
   const containsGreeting = /(hola|buen|buenas|d[ií]as|tardes|noches|como estas|c[oó]mo est[aá]s|saludos|qu[eé] tal)/i.test(text);
   const isGreetingOrCasual = (containsGreeting && !isExplicitDataQuery) || (text.length < 25 && !isExplicitDataQuery);
 
