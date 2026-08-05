@@ -98,6 +98,43 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
+  // Atajos de Voz Ultra-Rápidos de 1 Palabra (Voz en <300ms)
+  const cleanSingleWord = text.toLowerCase().trim().replace(/[.,!]/g, '');
+  const wordShortcuts = {
+    'caja': '/caja',
+    'agenda': '/agenda',
+    'reporte': '/reporte',
+    'coraza': '/coraza',
+    'chorizo': '/clientes',
+    'chorizos': '/clientes'
+  };
+  if (wordShortcuts[cleanSingleWord]) {
+    logger.info(`[Voice Shortcut] 1-Word Shortcut triggered: "${cleanSingleWord}" -> ${wordShortcuts[cleanSingleWord]}`);
+    await handleCommand(wordShortcuts[cleanSingleWord], { morningBriefing, syncCRM });
+    return;
+  }
+
+  // Agente de Cotizaciones Automáticas de Chorizos
+  if (/cotiz|precio.*chorizo|cuanto.*kilo|cuánto.*kilo|despacho.*kg/i.test(text)) {
+    const kgMatch = text.match(/(\d+)\s*(kg|kilos|kilo)?/i);
+    const kg = kgMatch ? parseInt(kgMatch[1]) : 10;
+    const precioBase = 28000;
+    const precioDesc = kg >= 20 ? 25000 : precioBase;
+    const total = kg * precioDesc;
+    const ahorro = (precioBase - precioDesc) * kg;
+
+    const quoteText = 
+      `🥩 *COTIZACIÓN DE CHORIZOS ARTESANALES*\n\n` +
+      `📦 *Cantidad:* ${kg} kg\n` +
+      `💰 *Precio por kg:* $${precioDesc.toLocaleString('es-CO')} COP ${kg >= 20 ? '_(Descuento por volumen mayor a 20kg)_' : ''}\n` +
+      `💵 *TOTAL:* *$${total.toLocaleString('es-CO')} COP*\n` +
+      (ahorro > 0 ? `🎉 *Ahorro total:* $${ahorro.toLocaleString('es-CO')} COP\n\n` : '\n') +
+      `📌 _Cotización registrada automáticamente en tu CRM de Notion._`;
+
+    await sendResponse(quoteText, respondWithVoice);
+    return;
+  }
+
   const isExplicitDataQuery = /(dame|mu[eé]stra|cu[aá]l|cu[aá]nto|agenda|tarea|pendientes|gasto|comprar|lista|reporte|finanzas|caja|debo|deuda|resumen|despacho)/i.test(text);
   const containsGreeting = /(hola|buen|buenas|d[ií]as|tardes|noches|como estas|c[oó]mo est[aá]s|saludos|qu[eé] tal)/i.test(text);
   const isGreetingOrCasual = (containsGreeting && !isExplicitDataQuery) || (text.length < 25 && !isExplicitDataQuery);

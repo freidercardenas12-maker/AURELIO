@@ -1,16 +1,13 @@
-/**
- * Generates 1-click WhatsApp wa.me link for quick customer messaging.
- * @param {string} phone Phone number (e.g. "573001234567" or "+573001234567")
- * @param {string} message Text of the message to pre-fill
- * @returns {string} Clickable URL
- */
-function generateWhatsAppLink(phone = '', message = '') {
-  const cleanPhone = phone.replace(/[^0-9]/g, '');
-  const encodedText = encodeURIComponent(message);
-  if (!cleanPhone) {
-    return `https://wa.me/?text=${encodedText}`;
-  }
-  return `https://wa.me/${cleanPhone}?text=${encodedText}`;
+const logger = require('../utils/logger');
+
+async function processWhatsAppMessage(from, body, mediaUrl = null) {
+  logger.info(`[WhatsApp Engine] Incoming message from ${from}: "${body}"`);
+  return {
+    status: 'received',
+    reply: `🏛️ [Aurelio WhatsApp] Mensaje recibido de ${from}. Procesando solicitud ejecutiva...`
+  };
 }
 
-module.exports = { generateWhatsAppLink };
+module.exports = {
+  processWhatsAppMessage
+};

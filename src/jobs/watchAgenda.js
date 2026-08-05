@@ -1,6 +1,7 @@
 const config = require('../config');
 const { queryDB } = require('../services/notion');
-const { sendMsg } = require('../services/telegram');
+const { sendMsgWithButtons, sendVoiceNote } = require('../services/telegram');
+const { generateSpeechBuffer } = require('../services/tts');
 const { txt, sel } = require('../utils/notion-props');
 const { getTodayStr } = require('../utils/dates');
 const logger = require('../utils/logger');
@@ -31,13 +32,17 @@ async function watchAgendaMeetings() {
       notifiedMeetingsCache.add(id);
       logger.info(`[Watch Agenda] Proactive meeting alert sent for: "${actividad}"`);
 
-      await sendMsg(
+      const alertText = 
         `⏰ *ALERTA DE REUNIÓN / COMPROMISO*\n\n` +
         `📌 *${actividad}*\n` +
         `📆 Programado para: *${horaStr}*\n` +
         `📍 Registrado en tu Agenda de Notion\n\n` +
-        `🏛️ _"Que la improvisación no reemplace la preparación."_ — Aurelio`
-      );
+        `🏛️ _"Que la improvisación no reemplace la preparación."_ — Aurelio`;
+
+      await sendMsgWithButtons(alertText);
+
+      const voiceMsg = await generateSpeechBuffer(`Señor Cárdenas, alerta de compromiso. Tiene programado: ${actividad} a las ${horaStr}.`);
+      if (voiceMsg) await sendVoiceNote(voiceMsg);
     }
   } catch (e) {
     logger.error(`[Watch Agenda Error]: ${e.message}`);
