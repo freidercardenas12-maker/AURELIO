@@ -51,19 +51,61 @@ function getCleanChatId() {
   return String(config.TELEGRAM_CHAT_ID || '').trim().replace(/['"]/g, '');
 }
 
-async function sendMsg(text) {
+async function sendMsg(text, replyMarkup = null) {
   const url = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/sendMessage`;
   const formattedText = cleanMarkdownForTelegram(text);
   const chatId = getCleanChatId();
   const body = { chat_id: chatId, text: formattedText, parse_mode: 'Markdown' };
+  if (replyMarkup) {
+    body.reply_markup = replyMarkup;
+  }
   try {
     const res = await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, body);
     if (res.statusCode !== 200) {
       // Fallback without parse_mode if formatting error occurs
-      await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, { chat_id: chatId, text });
+      const fallbackBody = { chat_id: chatId, text };
+      if (replyMarkup) fallbackBody.reply_markup = replyMarkup;
+      await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, fallbackBody);
     }
   } catch (e) {
     logger.error(`[Telegram Service] Error sending message: ${e.message}`);
+  }
+}
+
+const EXECUTIVE_INLINE_KEYBOARD = {
+  inline_keyboard: [
+    [
+      { text: '📄 Generar PDF', callback_data: 'cb_reporte' },
+      { text: '📅 Mi Agenda', callback_data: 'cb_agenda' }
+    ],
+    [
+      { text: '💰 Saldo de Caja', callback_data: 'cb_caja' },
+      { text: '🥩 Despachos', callback_data: 'cb_chorizos' }
+    ]
+  ]
+};
+
+async function sendMsgWithButtons(text, customKeyboard = null) {
+  const keyboard = customKeyboard || EXECUTIVE_INLINE_KEYBOARD;
+  await sendMsg(text, keyboard);
+}
+
+async function answerCallbackQuery(callbackQueryId, text = '') {
+  try {
+    const url = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/answerCallbackQuery`;
+    await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, { callback_query_id: callbackQueryId, text });
+  } catch (e) {
+    logger.error(`[Telegram Callback Error]: ${e.message}`);
+  }
+}
+
+async function pinChatMessage(messageId) {
+  try {
+    const chatId = getCleanChatId();
+    const url = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/pinChatMessage`;
+    await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, { chat_id: chatId, message_id: messageId, disable_notification: true });
+  } catch (e) {
+    logger.error(`[Telegram Pin Error]: ${e.message}`);
   }
 }
 
@@ -226,6 +268,23 @@ async function pollTelegram(onMessage, onVoice, onPhoto) {
 
     for (const update of (res.body.result || [])) {
       lastUpdateId = update.update_id;
+
+      if (update.callback_query) {
+        const cb = update.callback_query;
+        logger.info(`[Telegram Callback] Button pressed: ${cb.data}`);
+        await answerCallbackQuery(cb.id, '🏛️ Procesando...');
+        const cbMap = {
+          'cb_reporte': '/reporte',
+          'cb_agenda': '/agenda',
+          'cb_caja': '/caja',
+          'cb_chorizos': '/clientes',
+          'cb_coraza': '/coraza'
+        };
+        const cmd = cbMap[cb.data] || '/ayuda';
+        await onMessage(cmd);
+        continue;
+      }
+
       const msg = update.message;
       if (!msg) continue;
 
@@ -257,11 +316,15 @@ async function pollTelegram(onMessage, onVoice, onPhoto) {
 
 module.exports = {
   sendMsg,
+  sendMsgWithButtons,
   sendVoiceNote,
   sendDocument,
   downloadFile,
   registerBotCommands,
   pollTelegram,
   deleteWebhook,
-  makeRequest
+  makeRequest,
+  answerCallbackQuery,
+  pinChatMessage,
+  EXECUTIVE_INLINE_KEYBOARD
 };

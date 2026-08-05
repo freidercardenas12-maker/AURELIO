@@ -5,6 +5,7 @@ const { watchTasks } = require('./watchTasks');
 const { watchAgendaMeetings } = require('./watchAgenda');
 const { syncCRM } = require('./syncCRM');
 const { runCRMReactivationAgent } = require('../services/crm_agent');
+const { updateLivePinnedBoard } = require('./pinnedBoard');
 const { getColombiaHour, getTodayStr } = require('../utils/dates');
 const logger = require('../utils/logger');
 
@@ -46,10 +47,12 @@ function startJobs() {
   watchAgendaMeetings();
   setTimeout(syncCRM, 5000);
   setTimeout(runCRMReactivationAgent, 10000);
+  setTimeout(updateLivePinnedBoard, 15000);
 
   // Intervals
   setInterval(watchTasks, 30000);
   setInterval(watchAgendaMeetings, 5 * 60 * 1000);
+  setInterval(updateLivePinnedBoard, 10 * 60 * 1000);
   setInterval(syncCRM, 12 * 60 * 60 * 1000);
   setInterval(runCRMReactivationAgent, 24 * 60 * 60 * 1000);
 

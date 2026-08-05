@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURELIO v4.0 — Dashboard Ejecutivo en Vivo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(255, 255, 255, 0.03);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --primary: #f59e0b;
+      --accent: #3b82f6;
+      --danger: #ef4444;
+      --success: #10b981;
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding: 2rem;
+      min-height: 100vh;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(59, 130, 246, 0.08) 0%, transparent 45%);
+    }
+
+    .top-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .logo-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .logo-area h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .badge {
+      padding: 0.3rem 0.8rem;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      backdrop-filter: blur(12px);
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+      color: var(--subtext);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .stat-val {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-sub {
+      font-size: 0.85rem;
+      color: var(--subtext);
+    }
+
+    .list-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .list-item:last-child {
+      border-bottom: none;
+    }
+
+    .tag {
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .tag-todo { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+    .tag-progress { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+    .tag-done { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+
+    .nav-btn {
+      padding: 0.6rem 1.2rem;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      border: 1px solid var(--card-border);
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .nav-btn:hover {
+      background: var(--primary);
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="top-header">
+    <div class="logo-area">
+      <h1>🏛️ AURELIO v4.0</h1>
+      <span class="badge">DASHBOARD EJECUTIVO EN VIVO</span>
+    </div>
+    <div style="display: flex; gap: 1rem;">
+      <a href="/graph" class="nav-btn">🌐 Ver Grafo de Arquitectura</a>
+      <a href="/health" class="nav-btn" target="_blank">🟢 Health Check API</a>
+    </div>
+  </div>
+
+  <div class="grid-container">
+
+    <!-- Card 1: Balance Financiero -->
+    <div class="card">
+      <div class="card-title">💰 Balance Financiero Real</div>
+      <div class="stat-val" style="color: var(--success);">$1.299.809 COP</div>
+      <div class="stat-sub">Caja Disponible Actual en Notion</div>
+      <hr style="margin: 1rem 0; border: none; border-top: 1px solid var(--card-border);">
+      <div class="list-item">
+        <span>Arriendo (Vence 9 Ago)</span>
+        <span style="color: var(--danger); font-weight: 600;">$1.000.000</span>
+      </div>
+      <div class="list-item">
+        <span>Universidad (Vence 9 Ago)</span>
+        <span style="color: var(--danger); font-weight: 600;">$2.300.000</span>
+      </div>
+      <div class="list-item" style="margin-top: 0.5rem;">
+        <span style="font-weight: 600;">Déficit Operativo Proyectado:</span>
+        <span style="color: var(--danger); font-weight: 700;">-$2.000.191 COP</span>
+      </div>
+    </div>
+
+    <!-- Card 2: Agenda de Hoy -->
+    <div class="card">
+      <div class="card-title">📅 Compromisos de Hoy</div>
+      <div class="list-item">
+        <div>
+          <div style="font-weight: 600;">Reunión Gestión Documental</div>
+          <div style="font-size: 0.8rem; color: var(--subtext);">Coraza Seguridad CTA</div>
+        </div>
+        <span class="tag tag-progress">10:00 AM</span>
+      </div>
+      <div class="list-item">
+        <div>
+          <div style="font-weight: 600;">Compra de Rótulos</div>
+          <div style="font-size: 0.8rem; color: var(--subtext);">Gestión de Compras</div>
+        </div>
+        <span class="tag tag-todo">11:00 AM</span>
+      </div>
+      <div class="list-item">
+        <div>
+          <div style="font-weight: 600;">Reunión con Mariana</div>
+          <div style="font-size: 0.8rem; color: var(--subtext);">Gestión Documental</div>
+        </div>
+        <span class="tag tag-todo">11:00 AM</span>
+      </div>
+    </div>
+
+    <!-- Card 3: Coraza Kanban -->
+    <div class="card">
+      <div class="card-title">🛡️ Coraza Seguridad CTA</div>
+      <div class="list-item">
+        <span>Bug de Cierre de Sesión en Móviles</span>
+        <span class="tag tag-progress">En Curso</span>
+      </div>
+      <div class="list-item">
+        <span>Módulo Autenticación & Login</span>
+        <span class="tag tag-todo">Por Hacer</span>
+      </div>
+      <div class="list-item">
+        <span>Pruebas Penetración QA</span>
+        <span class="tag tag-todo">QA Pruebas</span>
+      </div>
+      <div class="list-item">
+        <span>Refactor Endpoints Auditoría</span>
+        <span class="tag tag-todo">Backlog</span>
+      </div>
+    </div>
+
+    <!-- Card 4: CRM Chorizos -->
+    <div class="card">
+      <div class="card-title">🥩 CRM Chorizos Artesanales</div>
+      <div class="list-item">
+        <div>
+          <div style="font-weight: 600;">Asadero El Turco</div>
+          <div style="font-size: 0.8rem; color: var(--subtext);">Despacho 25kg</div>
+        </div>
+        <span class="tag tag-progress">7 de Agosto</span>
+      </div>
+      <div class="list-item">
+        <div>
+          <div style="font-weight: 600;">Tienda La Abundancia</div>
+          <div style="font-size: 0.8rem; color: var(--subtext);">Despacho 15kg</div>
+        </div>
+        <span class="tag tag-todo">8 de Agosto</span>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

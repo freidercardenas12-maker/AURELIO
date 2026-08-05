@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AURELIO v3.0 — Grafo Interactivo de Arquitectura en Vivo</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.1);
+      --primary: #f59e0b;
+      --accent: #3b82f6;
+      --success: #10b981;
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 40%);
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 0.8rem;
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    p.subtitle {
+      color: var(--subtext);
+      font-size: 1rem;
+    }
+
+    .status-bar {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      width: 100%;
+      max-width: 1100px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .status-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      backdrop-filter: blur(10px);
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--success);
+      box-shadow: 0 0 10px var(--success);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+      70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(16, 185, 129, 0); }
+      100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+    }
+
+    .graph-container {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      width: 100%;
+      max-width: 1100px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(15px);
+      overflow-x: auto;
+    }
+
+    .mermaid {
+      display: flex;
+      justify-content: center;
+    }
+
+    footer {
+      margin-top: 2rem;
+      color: var(--subtext);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">SISTEMA EN VIVO — AURELIO v3.0</div>
+    <h1>GRAFO INTERACTIVO DE ARQUITECTURA</h1>
+    <p class="subtitle">Visualizador del Flujo de Datos, Componentes de IA y Bases de Datos en Tiempo Real</p>
+  </header>
+
+  <div class="status-bar">
+    <div class="status-card">
+      <div class="dot"></div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--subtext);">SERVIDOR LOCAL</div>
+        <div style="font-weight: 600; font-size: 0.95rem;">Node.js Port 3000 Active</div>
+      </div>
+    </div>
+    <div class="status-card">
+      <div class="dot"></div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--subtext);">INTELIGENCIA ARTIFICIAL</div>
+        <div style="font-weight: 600; font-size: 0.95rem;">Gemini Flash Engine Ready</div>
+      </div>
+    </div>
+    <div class="status-card">
+      <div class="dot"></div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--subtext);">MOTOR DE VOZ HD</div>
+        <div style="font-weight: 600; font-size: 0.95rem;">EdgeTTS GonzaloNeural 96kbps</div>
+      </div>
+    </div>
+    <div class="status-card">
+      <div class="dot"></div>
+      <div>
+        <div style="font-size: 0.75rem; color: var(--subtext);">BASES DE DATOS</div>
+        <div style="font-weight: 600; font-size: 0.95rem;">5 Tableros Notion Sincronizados</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="graph-container">
+    <div class="mermaid">
+      graph TD
+        User["📱 Freider Cárdenas (Telegram)"] -->|Voz / Texto / Foto| TelegramAPI["🌐 Telegram Bot API"]
+        TelegramAPI -->|Polling / Webhook| Server["🚀 Express Server (src/index.js)"]
+        
+        Server -->|1. Saludos Cortos (0ms)| GreetingInterceptor["⚡ Interceptor de Saludos (src/index.js)"]
+        Server -->|2. Detección de Intenciones| IntentClassifier["🧠 Intent Classifier (src/core/intent.js)"]
+        Server -->|3. Fotos / Comprobantes| VisionService["👁️ Gemini Vision (src/services/gemini.js)"]
+        Server -->|4. Procesamiento de Voz| AudioService["🎙️ Speech-to-Text (src/services/audio.js)"]
+
+        IntentClassifier -->|Conversación Libre| GeminiLLM["🤖 Gemini Flash AI Engine"]
+        IntentClassifier -->|Consultas de Datos| NotionContext["📊 Notion Context Builder (src/core/context.js)"]
+
+        NotionContext <-->|CRUD 5 DBs| NotionAPI["🏛️ Notion API Services"]
+        NotionAPI <--> DB1["🥩 CRM Chorizos Artesanales"]
+        NotionAPI <--> DB2["🛡️ Coraza Seguridad CTA"]
+        NotionAPI <--> DB3["💰 Finanzas y Caja"]
+        NotionAPI <--> DB4["📅 Agenda y Eventos"]
+        NotionAPI <--> DB5["📌 Kanban de Tareas"]
+
+        GeminiLLM -->|Generación de Respuesta| TextResponse["📝 Respuesta en Texto Ejecutivo"]
+        TextResponse -->|Síntesis de Audio| TTSEngine["🔊 EdgeTTS Male Neural HD"]
+
+        TTSEngine -->|Buffer MP3 (96kbps)| TelegramAPI
+        TextResponse -->|Mensaje Formateado| TelegramAPI
+
+        subgraph AGENTES ["🤖 TRABAJOS PROACTIVOS Y AGENTES"]
+            Scheduler["⏰ Task Scheduler"]
+            MorningJob["🌅 Briefing Matutino (7:00 AM)"]
+            CRMJob["🥩 Agente de Reactivación CRM"]
+            PDFJob["📄 Generador de Informes PDF"]
+            Scheduler --> MorningJob
+            Scheduler --> CRMJob
+            Scheduler --> PDFJob
+        end
+
+        subgraph INFRA ["☁️ INFRAESTRUCTURA DE DESPLIEGUE"]
+            GitRepo["🐙 GitHub: freidercardenas12-maker/AURELIO"]
+            RenderCloud["☁️ Render Cloud Service"]
+            LocalDaemon["💻 Local PC Server (Port 3000)"]
+        end
+    </div>
+  </div>
+
+  <footer>
+    Aurelio v3.0 — Sistema Operativo Ejecutivo & Secretario Inteligente para Freider Cárdenas
+  </footer>
+
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: 'dark',
+      themeVariables: {
+        darkMode: true,
+        background: '#0b0f19',
+        primaryColor: '#1e293b',
+        primaryTextColor: '#f8fafc',
+        primaryBorderColor: '#d97706',
+        lineColor: '#f59e0b',
+        secondaryColor: '#0f172a',
+        tertiaryColor: '#1e293b'
+      }
+    });
+  </script>
+</body>
+</html>

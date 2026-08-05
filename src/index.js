@@ -19,7 +19,9 @@ const messageQueue = new SimpleQueue(1);
 
 // Express App for health monitoring & webhooks
 const app = express();
+const path = require('path');
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/health', (req, res) => {
   res.json({
@@ -27,9 +29,17 @@ app.get('/health', (req, res) => {
     version: 'v3.0_greeting_interceptor_active',
     service: 'Aurelio Bot v2.0 — 10/10 PERFECTO',
     uptime: Math.floor(process.uptime()),
-    capabilities: ['text', 'voice', 'vision', 'tts', 'whatsapp', 'calendar', 'notion-attachments', 'memory', 'webhook'],
+    capabilities: ['text', 'voice', 'vision', 'tts', 'whatsapp', 'calendar', 'notion-attachments', 'memory', 'webhook', 'graph'],
     timestamp: new Date().toISOString()
   });
+});
+
+app.get('/graph', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/graph.html'));
+});
+
+app.get('/dashboard', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/dashboard.html'));
 });
 
 // Production Webhook endpoint for Telegram
@@ -194,7 +204,7 @@ async function processVoiceMessage(fileId) {
 
 async function processPhotoMessage(fileId, caption) {
   try {
-    await sendMsg('👁️ *Analizando imagen con Gemini Vision...*');
+    await sendMsg('👁️ *Analizando comprobante/imagen con Gemini Vision...*');
     const getFileUrl = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/getFile?file_id=${fileId}`;
     const fileRes = await makeRequest(getFileUrl, 'GET', {});
 
@@ -206,42 +216,48 @@ async function processPhotoMessage(fileId, caption) {
     const downloadUrl = `https://api.telegram.org/file/bot${config.TELEGRAM_BOT_TOKEN}/${fileRes.body.result.file_path}`;
     const imageBuffer = await downloadFile(downloadUrl);
 
-    // Detect if receipt/invoice to auto-register in Notion Finances
-    const isReceipt = caption && /recibo|factura|gasto|pago|compra/i.test(caption);
+    const promptText = `Analiza esta imagen con precisión.
+If it is a bank transfer receipt (Nequi, Bancolombia, Daviplata, PSE, BBVA), receipt, or invoice, respond ONLY with pure JSON:
+{"es_comprobante": true, "banco": "Nequi", "concepto": "Transferencia a Carlos", "monto": 50000, "referencia": "M12345", "fecha": "2026-08-05"}
 
-    const promptText = isReceipt
-      ? `Analiza este recibo o factura. Extrae: 1) Concepto o descripción del gasto. 2) Monto total en COP o USD. 3) Fecha. Responde en formato JSON: {"concepto": "...", "monto": 45000, "fecha": "2026-08-03"}`
-      : caption
-        ? `El usuario envió una imagen con el comentario: "${caption}". Analízala como Aurelio, su asistente ejecutivo estoico, y responde de forma útil y directa.`
-        : `Analiza esta imagen. Si es un recibo o factura extrae el concepto y monto total. Si es un documento resúmelo. Si es un tablero de tareas lista las actividades. Responde de forma directa y ejecutiva.`;
+If it is NOT a bank receipt, respond ONLY with pure JSON:
+{"es_comprobante": false, "descripcion": "Resumen ejecutivo de lo que se observa en la imagen"}
+Caption del usuario: "${caption || ''}"`;
 
     const visionReply = await geminiVisionCall(imageBuffer, promptText);
 
-    if (isReceipt && visionReply) {
+    if (visionReply) {
       try {
         const cleaned = visionReply.replace(/```json|```/g, '').trim();
         const match = cleaned.match(/\{.*\}/s);
         if (match) {
           const data = JSON.parse(match[0]);
-          if (data.concepto && data.monto) {
-            const imageDesc = `${data.concepto} — $${data.monto.toLocaleString('es-CO')} COP | Foto adjunta vía Telegram`;
-            const created = await createReceiptEntry(data.concepto, data.monto, imageDesc);
-            if (created) {
-              await sendMsg(
-                `🧾 *Recibo Registrado y Archivado en Notion*\n\n` +
-                `✍️ *${data.concepto}*\n` +
-                `💸 *$${Number(data.monto).toLocaleString('es-CO')} COP*\n` +
-                `📅 ${data.fecha || 'Hoy'}\n\n` +
-                `📎 _Descripción del comprobante guardada en tu base de Finanzas._`
-              );
-              return;
-            }
+          if (data.es_comprobante && data.monto) {
+            const conceptoStr = `${data.banco ? data.banco + ': ' : ''}${data.concepto || 'Comprobante de pago'}`;
+            const created = await createReceiptEntry(conceptoStr, data.monto, `Ref: ${data.referencia || 'N/A'} | Telegram Photo`);
+            
+            const replyText = 
+              `🧾 *Comprobante Registrado en Notion*\n\n` +
+              `🏦 *Banco/Origen:* ${data.banco || 'Transferencia'}\n` +
+              `✍️ *Concepto:* ${data.concepto || 'Gasto'}\n` +
+              `💰 *Monto:* $${Number(data.monto).toLocaleString('es-CO')} COP\n` +
+              `🔢 *Ref:* ${data.referencia || 'Sin ref'}\n` +
+              `📅 *Fecha:* ${data.fecha || 'Hoy'}\n\n` +
+              `✅ _Registrado automáticamente en tu base de Finanzas._`;
+
+            await sendMsgWithButtons(replyText);
+            const voiceConfirm = await generateSpeechBuffer(`Comprobante de ${data.banco || ''} por $${Number(data.monto).toLocaleString('es-CO')} pesos registrado exitosamente.`);
+            if (voiceConfirm) await sendVoiceNote(voiceConfirm);
+            return;
+          } else if (data.descripcion) {
+            await sendMsgWithButtons(`📷 *Análisis de Imagen:*\n\n${data.descripcion}`);
+            return;
           }
         }
       } catch (_) {}
     }
 
-    await sendMsg(visionReply || '📷 Imagen recibida, pero no pude extraer información clara de ella.');
+    await sendMsgWithButtons(visionReply || '📷 Imagen recibida, pero no se detectaron datos financieros claros.');
   } catch (e) {
     logger.error(`[Photo Processing Error]: ${e.message}`);
     await sendMsg(`❌ Error procesando la imagen: ${e.message}`);
