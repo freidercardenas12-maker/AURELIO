@@ -118,6 +118,27 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
+  // Agente de Prospección B2B de Clientes para Chorizos
+  if (/prospect|prospecc|nuevos.*cliente|restaurante/i.test(text)) {
+    const { runB2BProspectingScan } = require('./services/prospecting');
+    await runB2BProspectingScan();
+    return;
+  }
+
+  // Co-Piloto Técnico y de Código para Coraza Seguridad CTA
+  if (/cierre.*sesion|cierre.*sesión|bug|codigo|código|react.*native|script.*coraza/i.test(text)) {
+    const { handleCorazaTechnicalCopilot } = require('./core/codeCopilot');
+    await handleCorazaTechnicalCopilot(text);
+    return;
+  }
+
+  // Simulador Financiero Predictivo y Proyección a 6 Meses
+  if (/simula|proyecc|6.*meses|predicc/i.test(text)) {
+    const { runFinancialSimulation6Months } = require('./core/financialSimulator');
+    await runFinancialSimulation6Months();
+    return;
+  }
+
   // Plan de Emergencia Financiera y Liquidez
   if (/emergencia|rescate|plan.*accion|plan.*acción|deficit|déficit|cubrir.*arriendo/i.test(text)) {
     const { runEmergencyFinancialPlan } = require('./core/emergencyPlan');
