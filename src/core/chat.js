@@ -34,6 +34,11 @@ async function geminiChat(userMessage, intentType = 'CONVERSACION') {
     return finalReply;
   }
 
+  let notionContext = '';
+  if (!isGreetingOrCasual && intentType !== 'CONVERSACION') {
+    notionContext = await buildContext(intentType);
+  }
+
   const memoryContext = getMemoryContext();
 
   const systemPrompt = `Eres AURELIO — El secretario estoico, estratega y asistente personal de Freider Cárdenas.
