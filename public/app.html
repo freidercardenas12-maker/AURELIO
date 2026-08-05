@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelio Executive Mobile App</title>
+  <link rel="manifest" href="/manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.1);
+      --primary: #f59e0b;
+      --text: #f8fafc;
+      --subtext: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Outfit', sans-serif; }
+    body { background: var(--bg); color: var(--text); padding: 1.5rem; display: flex; flex-direction: column; min-height: 100vh; }
+
+    header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+    h1 { font-size: 1.5rem; font-weight: 700; }
+    .badge { padding: 0.3rem 0.6rem; background: rgba(245,158,11,0.2); color: var(--primary); border-radius: 99px; font-size: 0.75rem; font-weight: 600; }
+
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 1.2rem; margin-bottom: 1rem; backdrop-filter: blur(10px); }
+    .card-title { font-size: 0.8rem; color: var(--subtext); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .amount { font-size: 2rem; font-weight: 700; color: #10b981; }
+
+    .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 2rem; }
+    .action-btn { padding: 1rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border); border-radius: 12px; color: #fff; text-align: center; text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .action-btn:active { background: var(--primary); color: #000; }
+
+    .mic-fab {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 65px;
+      height: 65px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #f59e0b, #d97706);
+      color: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.8rem;
+      box-shadow: 0 10px 25px rgba(245, 158, 11, 0.4);
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏛️ AURELIO APP</h1>
+    <span class="badge">PWA MOBILE ACTIVE</span>
+  </header>
+
+  <div class="card">
+    <div class="card-title">Caja Disponible en Notion</div>
+    <div class="amount">$1.299.809 COP</div>
+    <div style="font-size: 0.85rem; color: var(--subtext); margin-top: 0.4rem;">Déficit comprometido: -$2.000.191 COP</div>
+  </div>
+
+  <div class="btn-grid">
+    <a href="/dashboard" class="action-btn">📊 Dashboard</a>
+    <a href="/graph" class="action-btn">🌐 Grafo Sistema</a>
+    <a href="https://t.me/ALCACIA_BOT" class="action-btn" target="_blank">📱 Telegram Bot</a>
+    <a href="/health" class="action-btn" target="_blank">🟢 Estado Server</a>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Compromisos de Hoy</div>
+    <div style="font-size: 0.95rem; font-weight: 600;">• 10:00 AM — Reunión Coraza Gestión Documental</div>
+    <div style="font-size: 0.95rem; font-weight: 600; margin-top: 0.4rem;">• 11:00 AM — Compra de Rótulos</div>
+  </div>
+
+  <div class="mic-fab" onclick="alert('🏛️ Aurelio te escucha a través de Telegram o notas de voz grabadas en la app.')">🎙️</div>
+
+</body>
+</html>

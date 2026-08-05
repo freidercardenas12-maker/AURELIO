@@ -42,6 +42,10 @@ app.get('/dashboard', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/dashboard.html'));
 });
 
+app.get('/app', (req, res) => {
+  res.sendFile(path.join(__dirname, '../public/app.html'));
+});
+
 // Production Webhook endpoint for Telegram
 app.post('/webhook', (req, res) => {
   res.sendStatus(200);
@@ -111,6 +115,20 @@ async function processTextMessage(text, respondWithVoice = false) {
   if (wordShortcuts[cleanSingleWord]) {
     logger.info(`[Voice Shortcut] 1-Word Shortcut triggered: "${cleanSingleWord}" -> ${wordShortcuts[cleanSingleWord]}`);
     await handleCommand(wordShortcuts[cleanSingleWord], { morningBriefing, syncCRM });
+    return;
+  }
+
+  // Plan de Emergencia Financiera y Liquidez
+  if (/emergencia|rescate|plan.*accion|plan.*acción|deficit|déficit|cubrir.*arriendo/i.test(text)) {
+    const { runEmergencyFinancialPlan } = require('./core/emergencyPlan');
+    await runEmergencyFinancialPlan();
+    return;
+  }
+
+  // Agente Autónomo de Cierre de Ventas y Cobro Nequi/Bancolombia
+  if (/pago|comprar|nequi|bancolombia|qr|transferir|metodo.*pago|método.*pago/i.test(text)) {
+    const { handleSalesCheckout } = require('./services/checkout');
+    await handleSalesCheckout(text);
     return;
   }
 
