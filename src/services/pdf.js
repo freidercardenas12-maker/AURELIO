@@ -50,7 +50,17 @@ async function generateExecutivePDF(data = {}) {
         '• Déficit proyectado antes del 9 de agosto: -$2.108.767 COP';
 
       doc.fillColor('#334155').fontSize(10).font('Helvetica').text(financesText, { lineGap: 3 });
-      doc.moveDown(1.5);
+      doc.moveDown(1);
+
+      // Visual Vector Bar Chart for Financial Gauge
+      doc.fillColor(darkColor).fontSize(9).font('Helvetica-Bold').text('VISUALIZADOR DE METAS Y SALDOS (COP)');
+      doc.rect(40, doc.y + 5, 200, 15).fill('#10b981'); // Caja Available
+      doc.fillColor('#ffffff').fontSize(8).text('Caja: $1.3M', 45, doc.y - 12);
+
+      doc.rect(250, doc.y + 5, 300, 15).fill('#ef4444'); // Obligations
+      doc.fillColor('#ffffff').fontSize(8).text('Compromisos: $3.3M', 255, doc.y - 12);
+      
+      doc.moveDown(2);
 
       // Section 2: Operación Chorizos Artesanales
       doc.fillColor(darkColor).fontSize(14).font('Helvetica-Bold').text('2. OPERACIÓN CHORIZOS ARTESANALES (PRIORIDAD 1)');

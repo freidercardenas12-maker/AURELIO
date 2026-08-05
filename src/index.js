@@ -118,6 +118,13 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
+  // Autonomía Proactiva Diaria (Loop Autónomo)
+  if (/autonomo|autónomo|prioridades|acciones.*dia|acciones.*día|loop/i.test(text)) {
+    const { runAutonomousActionLoop } = require('./jobs/autonomousLoop');
+    await runAutonomousActionLoop();
+    return;
+  }
+
   // Agente de Prospección B2B de Clientes para Chorizos
   if (/prospect|prospecc|nuevos.*cliente|restaurante/i.test(text)) {
     const { runB2BProspectingScan } = require('./services/prospecting');
