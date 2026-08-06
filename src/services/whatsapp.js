@@ -8,6 +8,14 @@ async function processWhatsAppMessage(from, body, mediaUrl = null) {
   };
 }
 
+function generateWhatsAppLink(phone, text = '') {
+  const cleanPhone = String(phone || '').replace(/\D/g, '');
+  const encodedText = encodeURIComponent(text);
+  if (!cleanPhone) return 'https://wa.me/';
+  return `https://wa.me/${cleanPhone}?text=${encodedText}`;
+}
+
 module.exports = {
-  processWhatsAppMessage
+  processWhatsAppMessage,
+  generateWhatsAppLink
 };
