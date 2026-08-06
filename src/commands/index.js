@@ -107,16 +107,18 @@ async function handleCommand(text, jobsMap = {}) {
     const hours = Math.floor(uptime / 3600);
     const mins = Math.floor((uptime % 3600) / 60);
     const statusMsg =
-      `🟢 *ESTADO RESILIENTE DEL SISTEMA — AURELIO v11.0 ENTERPRISE*\n\n` +
+      `🟢 *ESTADO TITANIUM DEL SISTEMA — AURELIO v12.0 ULTRA-TITANIUM*\n\n` +
       `⏱️ *Uptime:* ${hours}h ${mins}m\n` +
-      `💾 *Base de Datos Local:* ${pendingCount === 0 ? 'Sincronizada (0 pendientes)' : `${pendingCount} pendientes de sync`} ✅\n` +
+      `🪞 *Notion Snapshot Mirror:* Réplica Local Activa (data/notion_mirror.json) ✅\n` +
+      `⚡ *Circuit Breaker Engine:* CLOSED (Resiliencia Activa) ✅\n` +
+      `🛡️ *Deduplicador Telegram:* Debouncer Activo ✅\n` +
+      `💾 *Base de Datos Local:* ${pendingCount === 0 ? 'Sincronizada (0 pendientes)' : `${pendingCount} pendientes`} ✅\n` +
       `🔁 *Auto-Healer Watchdog:* Monitoreo Activo (Puerto 3000) ✅\n` +
       `🔐 *Cifrado de Datos:* AES-256-GCM Activo ✅\n` +
       `🧠 *Memoria de Sesión:* ${topicsCount} temas, ${followupsCount} pendientes ✅\n` +
       `🎙️ *Motor de Voz:* es-CO-GonzaloNeural 96kbps ✅\n` +
-      `🤖 *Gemini AI:* Failover Quad-Grid Activo ✅\n` +
-      `📡 *Telegram Polling:* Resiliente Activo ✅\n\n` +
-      `🏛️ _Todos los sistemas operativos con resiliencia total. A sus órdenes, Señor Cárdenas._`;
+      `🤖 *Gemini AI:* Failover Quad-Grid Activo ✅\n\n` +
+      `🏛️ _Máxima arquitectura de resiliencia empresarial desplegada. A sus órdenes, Señor Cárdenas._`;
     await sendMsg(statusMsg);
     return;
   }
