@@ -19,8 +19,8 @@ const config = {
   NODE_ENV: process.env.NODE_ENV || 'production',
 
   // TELEGRAM
-  TELEGRAM_BOT_TOKEN: process.env.TELEGRAM_BOT_TOKEN,
-  TELEGRAM_CHAT_ID: process.env.TELEGRAM_CHAT_ID,
+  TELEGRAM_BOT_TOKEN: String(process.env.TELEGRAM_BOT_TOKEN || '').trim().replace(/['"\r\n]/g, ''),
+  TELEGRAM_CHAT_ID: String(process.env.TELEGRAM_CHAT_ID || '').trim().replace(/['"\r\n]/g, ''),
 
   // NOTION
   NOTION_TOKEN: process.env.NOTION_TOKEN,
