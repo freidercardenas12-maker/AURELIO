@@ -61,14 +61,32 @@ async function sendMsg(text, replyMarkup = null) {
   }
   try {
     const res = await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, body);
-    if (res.statusCode !== 200) {
-      // Fallback without parse_mode if formatting error occurs
-      const fallbackBody = { chat_id: chatId, text };
-      if (replyMarkup) fallbackBody.reply_markup = replyMarkup;
-      await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, fallbackBody);
+    if (res.statusCode === 200 && res.body?.result) {
+      return res.body.result;
     }
+    // Fallback without parse_mode if formatting error occurs
+    const fallbackBody = { chat_id: chatId, text };
+    if (replyMarkup) fallbackBody.reply_markup = replyMarkup;
+    const res2 = await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, fallbackBody);
+    return res2.body?.result || null;
   } catch (e) {
     logger.error(`[Telegram Service] Error sending message: ${e.message}`);
+    return null;
+  }
+}
+
+async function editMsgText(messageId, text, replyMarkup = null) {
+  const url = `https://api.telegram.org/bot${config.TELEGRAM_BOT_TOKEN}/editMessageText`;
+  const formattedText = cleanMarkdownForTelegram(text);
+  const chatId = getCleanChatId();
+  const body = { chat_id: chatId, message_id: messageId, text: formattedText, parse_mode: 'Markdown' };
+  if (replyMarkup) body.reply_markup = replyMarkup;
+  try {
+    const res = await makeRequest(url, 'POST', { 'Content-Type': 'application/json' }, body);
+    return res.statusCode === 200 && res.body?.ok;
+  } catch (e) {
+    logger.error(`[Telegram Edit Error]: ${e.message}`);
+    return false;
   }
 }
 
@@ -316,15 +334,16 @@ async function pollTelegram(onMessage, onVoice, onPhoto) {
 
 module.exports = {
   sendMsg,
+  editMsgText,
   sendMsgWithButtons,
   sendVoiceNote,
   sendDocument,
-  downloadFile,
   registerBotCommands,
-  pollTelegram,
   deleteWebhook,
-  makeRequest,
+  downloadFile,
+  pollTelegram,
   answerCallbackQuery,
   pinChatMessage,
+  makeRequest,
   EXECUTIVE_INLINE_KEYBOARD
 };
