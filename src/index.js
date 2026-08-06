@@ -178,6 +178,19 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
+  // 📊 Asesor Estratégico de Precios e Inventarios
+  if (/recomendaci[oó]n.*precio|asesor.*precio|precios|inventario|estrategia.*precio/i.test(text)) {
+    const { getStrategicPricingAdvice } = require('./core/pricingAdvisor');
+    const advice = await getStrategicPricingAdvice();
+    const { sendMsgWithButtons } = require('./services/telegram');
+    await sendMsgWithButtons(
+      `📊 *RECOMENDACIONES ESTRATÉGICAS DE PRECIOS — AURELIO AI*\n\n` +
+      `${advice.summaryText}\n\n` +
+      `🏛️ _"La estrategia sin datos es solo una ilusión."_`
+    );
+    return;
+  }
+
   // 📢 Difusión Masiva a Clientes CRM
   if (/difus|broadcast|enviar.*todos.*clientes|mensaje.*clientes/i.test(text)) {
     const { runCRMBroadcast } = require('./services/broadcast');
