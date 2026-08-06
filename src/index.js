@@ -161,6 +161,23 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
+  // 🔮 Proyección Financiera a 30 Días (AI Forecast)
+  if (/proyecci[oó]n|forecast|pron[oó]stico|caja.*30.*d[ií]as|futuro.*financ/i.test(text)) {
+    const { runFinancialForecast } = require('./core/financialForecast');
+    const fc = await runFinancialForecast();
+    const { sendMsgWithButtons } = require('./services/telegram');
+    await sendMsgWithButtons(
+      `🔮 *PROYECCIÓN FINANCIERA A 30 DÍAS — AURELIO AI*\n\n` +
+      `💰 *Caja Actual:* $${fc.cajaActual.toLocaleString('es-CO')} COP\n` +
+      `📈 *Ventas Proyectadas (30d):* +$${fc.ventasProyectadas30Dias.toLocaleString('es-CO')} COP\n` +
+      `📉 *Deudas Pendientes:* -$${fc.deudasTotal.toLocaleString('es-CO')} COP\n\n` +
+      `💵 *Caja Neta Proyectada al Cierre:* *$${fc.cajaProyectadaFinDeMes.toLocaleString('es-CO')} COP*\n` +
+      `👜 *Capital Inversión Guayaquil:* $${Math.round(fc.capitalDisponibleGuayaquil).toLocaleString('es-CO')} COP (~${fc.accesoriosImportablesUnits} unidades)\n` +
+      `🏥 *Salud Financiera:* ${fc.healthIndex}`
+    );
+    return;
+  }
+
   // 📢 Difusión Masiva a Clientes CRM
   if (/difus|broadcast|enviar.*todos.*clientes|mensaje.*clientes/i.test(text)) {
     const { runCRMBroadcast } = require('./services/broadcast');
