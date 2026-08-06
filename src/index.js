@@ -401,6 +401,10 @@ async function main() {
   await registerBotCommands();
   startJobs();
 
+  // Start Self-Healing Process Watchdog
+  const { startAutoHealer } = require('./utils/autoHealer');
+  startAutoHealer(3000, 30000);
+
   setInterval(() => {
     pollTelegram(
       (text)              => messageQueue.add(() => processTextMessage(text, false)),

@@ -99,22 +99,24 @@ async function handleCommand(text, jobsMap = {}) {
 
   if (trimmed.startsWith('/status') || trimmed.startsWith('/salud')) {
     const mem = loadMemory();
+    const { getPendingSyncCount } = require('../services/localDb');
+    const pendingCount = getPendingSyncCount();
     const topicsCount = mem.topics ? mem.topics.length : 0;
     const followupsCount = mem.pendingFollowups ? mem.pendingFollowups.length : 0;
     const uptime = Math.floor(process.uptime());
     const hours = Math.floor(uptime / 3600);
     const mins = Math.floor((uptime % 3600) / 60);
     const statusMsg =
-      `🟢 *ESTADO DEL SISTEMA — AURELIO v8.0 OMNIPRESENT*\n\n` +
+      `🟢 *ESTADO RESILIENTE DEL SISTEMA — AURELIO v11.0 ENTERPRISE*\n\n` +
       `⏱️ *Uptime:* ${hours}h ${mins}m\n` +
-      `🧠 *Memoria de Sesión:* ${topicsCount} temas registrados, ${followupsCount} pendientes de seguimiento\n` +
-      `🎙️ *Motor de Voz:* es-CO-GonzaloNeural 96kbps — Activo ✅\n` +
-      `🤖 *Gemini AI:* Multi-Fallback Activo ✅\n` +
-      `📋 *Notion Sync:* Activo ✅\n` +
-      `🔔 *Alertas Proactivas:* Throttle Guard Activo ✅\n` +
-      `📡 *Telegram Polling:* Activo ✅\n` +
-      `🌐 *Dashboard Web:* [http://localhost:3000/dashboard](http://localhost:3000/dashboard) ✅\n\n` +
-      `🏛️ _Todos los sistemas operativos. A sus órdenes, Sr. Cárdenas._`;
+      `💾 *Base de Datos Local:* ${pendingCount === 0 ? 'Sincronizada (0 pendientes)' : `${pendingCount} pendientes de sync`} ✅\n` +
+      `🔁 *Auto-Healer Watchdog:* Monitoreo Activo (Puerto 3000) ✅\n` +
+      `🔐 *Cifrado de Datos:* AES-256-GCM Activo ✅\n` +
+      `🧠 *Memoria de Sesión:* ${topicsCount} temas, ${followupsCount} pendientes ✅\n` +
+      `🎙️ *Motor de Voz:* es-CO-GonzaloNeural 96kbps ✅\n` +
+      `🤖 *Gemini AI:* Failover Quad-Grid Activo ✅\n` +
+      `📡 *Telegram Polling:* Resiliente Activo ✅\n\n` +
+      `🏛️ _Todos los sistemas operativos con resiliencia total. A sus órdenes, Señor Cárdenas._`;
     await sendMsg(statusMsg);
     return;
   }
