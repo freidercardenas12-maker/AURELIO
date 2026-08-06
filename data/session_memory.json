@@ -1,11 +1,16 @@
 {
   "topics": [
     {
+      "text": "En qué modelo estás operando o qué versión?",
+      "intent": "CONVERSACION",
+      "ts": "2026-08-06T19:20:36.670Z"
+    },
+    {
       "text": "Wendy Patricia Herrera Reyes",
       "intent": "CONVERSACION",
       "ts": "2026-08-06T14:56:31.419Z"
     }
   ],
-  "lastSeen": "2026-08-06T14:56:31.419Z",
+  "lastSeen": "2026-08-06T19:20:36.670Z",
   "pendingFollowups": []
 }

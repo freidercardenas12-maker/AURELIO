@@ -1,23 +1,28 @@
 /**
- * AURELIO — Anti Cold-Start Warm-Up Pinger
- * Keeps HTTPS TLS/SSL socket warm with Gemini API every 4 minutes.
- * Ensures zero-latency responses (<400ms) even after hours of idle state.
+ * AURELIO — Anti Cold-Start Warm-Up Pinger (Quota Safe)
+ * Performs a zero-token socket ping to Google APIs every 15 minutes.
+ * Keeps TLS/SSL sockets hot without wasting Gemini API free quota.
  */
-const { geminiCall } = require('./gemini');
+const https = require('https');
 const logger = require('../utils/logger');
 
-let warmupInterval = null;
+function startWarmupPinger(intervalMs = 15 * 60 * 1000) {
+  logger.info(`[Warm-Up Engine] Active — maintaining TLS socket every ${intervalMs / 60000} minutes.`);
 
-function startWarmupPinger(intervalMs = 4 * 60 * 1000) {
-  logger.info(`[Warm-Up Engine] Active — pinging Gemini socket every ${intervalMs / 60000} minutes.`);
-
-  warmupInterval = setInterval(async () => {
+  setInterval(() => {
     try {
-      // Lightweight silent ping
-      await geminiCall('ping');
-      logger.info('[Warm-Up Engine] Socket warm-up successful. Connection hot 🔥');
+      const req = https.request({
+        hostname: 'generativelanguage.googleapis.com',
+        path: '/',
+        method: 'HEAD',
+        timeout: 3000
+      }, (res) => {
+        logger.info('[Warm-Up Engine] Socket warm-up successful. TLS connection hot 🔥');
+      });
+      req.on('error', () => {});
+      req.end();
     } catch (e) {
-      logger.warn(`[Warm-Up Engine] Ping skipped: ${e.message}`);
+      // Ignore transient errors
     }
   }, intervalMs);
 }
