@@ -230,10 +230,13 @@ async function processTextMessage(text, respondWithVoice = false) {
 
   if (isGreetingOrCasual) {
     logger.info(`[Greeting Interceptor] Short executive greeting triggered for: "${text}"`);
+    const hour = new Date().getHours();
+    const saludo = hour < 12 ? 'Buenos días' : hour < 18 ? 'Buenas tardes' : 'Buenas noches';
     const greetings = [
-      'Buenas tardes, Sr. Cárdenas. Me encuentro totalmente enfocado, operativo y listo a sus órdenes. ¿En qué le puedo colaborar el día de hoy?',
-      'Buenas tardes, Freider. Todo en orden y bajo control. ¿En qué asunto o frente de negocio enfocaremos nuestra atención en este momento?',
-      'Hola, Sr. Cárdenas. Sistema operativo al cien por ciento y listo para la jornada. ¿En qué frente requiere acción inmediata?'
+      `${saludo}, Señor Cárdenas. Me encuentro totalmente enfocado, operativo y a sus órdenes. ¿En qué le puedo colaborar el día de hoy, Jefe?`,
+      `${saludo}, Jefe. Todo bajo control y listo para la jornada. ¿En qué frente de negocio enfocaremos nuestra atención, Señor Cárdenas?`,
+      `${saludo}, Señor Cárdenas. Sistema operativo al cien por ciento y a sus órdenes. ¿En qué frente requiere acción inmediata, Jefe?`,
+      `A sus órdenes, Señor Cárdenas. Dígame en qué le sirvo hoy, Jefe.`
     ];
     const reply = greetings[Math.floor(Math.random() * greetings.length)];
     await sendResponse(reply, respondWithVoice);
