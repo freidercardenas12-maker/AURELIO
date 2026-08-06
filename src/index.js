@@ -125,6 +125,40 @@ async function processTextMessage(text, respondWithVoice = false) {
     return;
   }
 
+  // ✉️ Redactar y Enviar Correo por Voz
+  if (/escr[ií]be?.*correo|env[ií]a?.*correo|email|correo.*para/i.test(text)) {
+    const { composeAndSendEmail } = require('./services/email');
+    await composeAndSendEmail(text);
+    return;
+  }
+
+  // 🧾 Generar Factura Profesional en PDF
+  if (/factura|factur[ae]|genera.*factura/i.test(text)) {
+    const { handleInvoiceRequest } = require('./services/invoice');
+    await handleInvoiceRequest(text);
+    return;
+  }
+
+  // 📡 Consultar Radar de Precios / Dólar
+  if (/dolar|dólar|precio.*import|guayaquil.*import|radar.*precio/i.test(text)) {
+    const { getPriceRadarStatus } = require('./jobs/priceRadar');
+    const status = await getPriceRadarStatus();
+    const { sendMsgWithButtons } = require('./services/telegram');
+    await sendMsgWithButtons(
+      `📡 *RADAR DE PRECIOS — AURELIO*\n\n` +
+      `💵 *USD/COP Actual:* ${status.rateStr}\n\n` +
+      `💡 *Análisis estratégico:* ${status.advice}`
+    );
+    return;
+  }
+
+  // 📢 Difusión Masiva a Clientes CRM
+  if (/difus|broadcast|enviar.*todos.*clientes|mensaje.*clientes/i.test(text)) {
+    const { runCRMBroadcast } = require('./services/broadcast');
+    await runCRMBroadcast(text);
+    return;
+  }
+
   // Agente de Prospección B2B de Clientes para Chorizos
   if (/prospect|prospecc|nuevos.*cliente|restaurante/i.test(text)) {
     const { runB2BProspectingScan } = require('./services/prospecting');

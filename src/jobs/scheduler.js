@@ -6,6 +6,7 @@ const { watchAgendaMeetings } = require('./watchAgenda');
 const { syncCRM } = require('./syncCRM');
 const { runCRMReactivationAgent } = require('../services/crm_agent');
 const { updateLivePinnedBoard } = require('./pinnedBoard');
+const { runPriceRadar } = require('./priceRadar');
 const { getColombiaHour, getTodayStr } = require('../utils/dates');
 const logger = require('../utils/logger');
 
@@ -55,6 +56,7 @@ function startJobs() {
   setInterval(updateLivePinnedBoard, 10 * 60 * 1000);
   setInterval(syncCRM, 12 * 60 * 60 * 1000);
   setInterval(runCRMReactivationAgent, 24 * 60 * 60 * 1000);
+  setInterval(runPriceRadar, 30 * 60 * 1000); // Price Radar every 30 min
 
   // Minute ticker for proactive scheduled notifications
   scheduleNotifications();
