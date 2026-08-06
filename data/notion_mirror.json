@@ -1,0 +1,5089 @@
+{
+  "timestamp": "2026-08-06T14:41:45.899Z",
+  "finances": [
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81b6-88ae-fac9516ce832",
+      "created_time": "2026-08-03T14:12:00.000Z",
+      "last_edited_time": "2026-08-03T14:12:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "a6dc262a-4d28-4945-94f3-2640632f7495",
+            "name": "Gasto Fijo",
+            "color": "red"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "b09179cc-1481-4eee-8817-b850e31c610f",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 2300000
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⚠️ Próximo a Vencer"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-08-09",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Semestre Universidad",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Semestre Universidad",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Semestre-Universidad-3b1b489ecc3c81b688aefac9516ce832",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8166-8044-f26dc51bf928",
+      "created_time": "2026-08-03T13:44:00.000Z",
+      "last_edited_time": "2026-08-03T13:44:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "defc9ab8-e54e-44a6-bbe7-32e049e45c7e",
+            "name": "Deuda por Pagar",
+            "color": "orange"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "bc3932d6-e188-482f-90a3-2ac771044f4a",
+            "name": "Pagado",
+            "color": "green"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 0
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "✅ Pagado"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-07-31",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago ADDI",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago ADDI",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-ADDI-3b1b489ecc3c81668044f26dc51bf928",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8159-aa6a-df1abc53740e",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:44:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "defc9ab8-e54e-44a6-bbe7-32e049e45c7e",
+            "name": "Deuda por Pagar",
+            "color": "orange"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "bc3932d6-e188-482f-90a3-2ac771044f4a",
+            "name": "Pagado",
+            "color": "green"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 100000
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "✅ Pagado"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-08-31",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Cívica Mirle",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Cívica Mirle",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-C-vica-Mirle-3b1b489ecc3c8159aa6adf1abc53740e",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8108-9637-febc859e8781",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:44:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "defc9ab8-e54e-44a6-bbe7-32e049e45c7e",
+            "name": "Deuda por Pagar",
+            "color": "orange"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "bc3932d6-e188-482f-90a3-2ac771044f4a",
+            "name": "Pagado",
+            "color": "green"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 108400
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "✅ Pagado"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-08-13",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Credimarcas",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Credimarcas",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Credimarcas-3b1b489ecc3c81089637febc859e8781",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81f3-8bf5-da14bcc422dd",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:09:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "a6dc262a-4d28-4945-94f3-2640632f7495",
+            "name": "Gasto Fijo",
+            "color": "red"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "b09179cc-1481-4eee-8817-b850e31c610f",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 100000
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⏳ Programado"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-08-10",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Gimnasio",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Gimnasio",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Gimnasio-3b1b489ecc3c81f38bf5da14bcc422dd",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81a8-9039-c62f63b686ac",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:09:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "a6dc262a-4d28-4945-94f3-2640632f7495",
+            "name": "Gasto Fijo",
+            "color": "red"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "b09179cc-1481-4eee-8817-b850e31c610f",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 1000000
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⚠️ Próximo a Vencer"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-08-09",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Arriendo",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Arriendo",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Arriendo-3b1b489ecc3c81a89039c62f63b686ac",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-816a-bb62-e857b23fc8f9",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:09:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "a6dc262a-4d28-4945-94f3-2640632f7495",
+            "name": "Gasto Fijo",
+            "color": "red"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "b09179cc-1481-4eee-8817-b850e31c610f",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 40000
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🚨 Vencido"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-08-01",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Plan Mirle",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Plan Mirle",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Plan-Mirle-3b1b489ecc3c816abb62e857b23fc8f9",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8189-b3f4-e250e4c3c1c6",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:44:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "a6dc262a-4d28-4945-94f3-2640632f7495",
+            "name": "Gasto Fijo",
+            "color": "red"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "bc3932d6-e188-482f-90a3-2ac771044f4a",
+            "name": "Pagado",
+            "color": "green"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 84900
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "✅ Pagado"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-07-31",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Tigo",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Tigo",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Tigo-3b1b489ecc3c8189b3f4e250e4c3c1c6",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-813d-837c-e086c6354b43",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:09:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "a6dc262a-4d28-4945-94f3-2640632f7495",
+            "name": "Gasto Fijo",
+            "color": "red"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "b09179cc-1481-4eee-8817-b850e31c610f",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 98576
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🚨 Vencido"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-07-31",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Servicios Públicos",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Servicios Públicos",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Servicios-P-blicos-3b1b489ecc3c813d837ce086c6354b43",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-816e-8cd2-f290e33306cd",
+      "created_time": "2026-08-03T13:09:00.000Z",
+      "last_edited_time": "2026-08-03T13:44:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-813b-b8cc-dd5bf30e3937"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Tipo": {
+          "id": "%3CG%7CT",
+          "type": "select",
+          "select": {
+            "id": "defc9ab8-e54e-44a6-bbe7-32e049e45c7e",
+            "name": "Deuda por Pagar",
+            "color": "orange"
+          }
+        },
+        "Estado": {
+          "id": "Y%5Dmh",
+          "type": "select",
+          "select": {
+            "id": "bc3932d6-e188-482f-90a3-2ac771044f4a",
+            "name": "Pagado",
+            "color": "green"
+          }
+        },
+        "Monto": {
+          "id": "_r%3A%3F",
+          "type": "number",
+          "number": 226300
+        },
+        "🚨 Alerta de Pago": {
+          "id": "q%7CeH",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "✅ Pagado"
+          }
+        },
+        "Fecha de Vencimiento": {
+          "id": "ralV",
+          "type": "date",
+          "date": {
+            "start": "2026-07-30",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Concepto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Tarjeta Éxito",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Tarjeta Éxito",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Tarjeta-xito-3b1b489ecc3c816e8cd2f290e33306cd",
+      "public_url": null,
+      "archived": false
+    }
+  ],
+  "tasks": [
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-81f7-aeb9-dc399653204e",
+      "created_time": "2026-07-22T21:51:00.000Z",
+      "last_edited_time": "2026-07-23T13:44:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": null
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "5fc610fe-f5c3-4fcf-bbc2-dbbe46e5f76a",
+            "name": "Feature",
+            "color": "purple"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": null
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": {
+            "id": "d771ca96-1b80-4653-b9c8-204624ffa79d",
+            "name": "Jhon Fredy",
+            "color": "green"
+          }
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81b6-9f00-d10e6a178ef7"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": {
+            "start": "2026-07-23",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⚡ En Curso"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "173473ce-b5c2-4858-9d5e-72d8368cb333",
+            "name": "En Curso",
+            "color": "blue"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🚨 Vencido"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "150cfd13-d8e7-4fb3-8e8d-f90ab16e31c6",
+            "name": "Alta",
+            "color": "red"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Terminar el módulo de dotación y recepción",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Terminar el módulo de dotación y recepción",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Terminar-el-m-dulo-de-dotaci-n-y-recepci-n-3a5b489ecc3c81f7aeb9dc399653204e",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-81d7-a267-e9e13a1beae8",
+      "created_time": "2026-07-22T21:51:00.000Z",
+      "last_edited_time": "2026-07-22T21:51:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": null
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "c9790a5a-9601-4734-a9e7-c1ba4a1278be",
+            "name": "Soporte",
+            "color": "gray"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": null
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": {
+            "id": "d771ca96-1b80-4653-b9c8-204624ffa79d",
+            "name": "Jhon Fredy",
+            "color": "green"
+          }
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81b6-9f00-d10e6a178ef7"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": {
+            "start": "2026-07-23",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⚡ En Curso"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "173473ce-b5c2-4858-9d5e-72d8368cb333",
+            "name": "En Curso",
+            "color": "blue"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🚨 Vencido"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "4b5b5f05-b400-49a1-a32d-72ebe94423a3",
+            "name": "Media",
+            "color": "yellow"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Terminar lo correspondiente del DOFA",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Terminar lo correspondiente del DOFA",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Terminar-lo-correspondiente-del-DOFA-3a5b489ecc3c81d7a267e9e13a1beae8",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-8180-abaa-d74965fdd2e0",
+      "created_time": "2026-07-22T21:51:00.000Z",
+      "last_edited_time": "2026-07-22T21:51:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": null
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "c9790a5a-9601-4734-a9e7-c1ba4a1278be",
+            "name": "Soporte",
+            "color": "gray"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": null
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": {
+            "id": "0d852e56-1186-4879-bd66-dd705f2af18c",
+            "name": "Freider Cárdenas",
+            "color": "blue"
+          }
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81b6-9f00-d10e6a178ef7"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": {
+            "start": "2026-07-23",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⚡ En Curso"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "173473ce-b5c2-4858-9d5e-72d8368cb333",
+            "name": "En Curso",
+            "color": "blue"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🚨 Vencido"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "4b5b5f05-b400-49a1-a32d-72ebe94423a3",
+            "name": "Media",
+            "color": "yellow"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Terminar los detalles faltantes del DOFA del departamento",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Terminar los detalles faltantes del DOFA del departamento",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Terminar-los-detalles-faltantes-del-DOFA-del-departamento-3a5b489ecc3c8180abaad74965fdd2e0",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-812f-89f4-dcd4d0a57455",
+      "created_time": "2026-07-22T21:51:00.000Z",
+      "last_edited_time": "2026-07-22T21:51:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": null
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "5fc610fe-f5c3-4fcf-bbc2-dbbe46e5f76a",
+            "name": "Feature",
+            "color": "purple"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": null
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": {
+            "id": "0d852e56-1186-4879-bd66-dd705f2af18c",
+            "name": "Freider Cárdenas",
+            "color": "blue"
+          }
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81b6-9f00-d10e6a178ef7"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": {
+            "start": "2026-07-23",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⚡ En Curso"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "173473ce-b5c2-4858-9d5e-72d8368cb333",
+            "name": "En Curso",
+            "color": "blue"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🚨 Vencido"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "150cfd13-d8e7-4fb3-8e8d-f90ab16e31c6",
+            "name": "Alta",
+            "color": "red"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Terminar de montar Gestión Humana App",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Terminar de montar Gestión Humana App",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Terminar-de-montar-Gesti-n-Humana-App-3a5b489ecc3c812f89f4dcd4d0a57455",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-8114-95fd-c16bdddb29e1",
+      "created_time": "2026-07-22T21:47:00.000Z",
+      "last_edited_time": "2026-07-22T21:47:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": {
+            "id": "dca3d5b8-8831-4dc9-8df7-76f77fe5d19e",
+            "name": "8",
+            "color": "red"
+          }
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "5fc610fe-f5c3-4fcf-bbc2-dbbe46e5f76a",
+            "name": "Feature",
+            "color": "purple"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": null
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": {
+            "id": "b73b85a9-8397-460f-a8ef-d36b3cb2e3e9",
+            "name": "Por asignar",
+            "color": "gray"
+          }
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-816e-af4d-e361058d197f"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": null
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "📝 Por Hacer"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "3d6479e7-35eb-4021-9dc9-da8a7b6b055a",
+            "name": "Por Hacer",
+            "color": "red"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🟡 Media"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "4b5b5f05-b400-49a1-a32d-72ebe94423a3",
+            "name": "Media",
+            "color": "yellow"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Crear backend de generación de reportes en PDF",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Crear backend de generación de reportes en PDF",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Crear-backend-de-generaci-n-de-reportes-en-PDF-3a5b489ecc3c811495fdc16bdddb29e1",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-81db-b123-cc5881ac0433",
+      "created_time": "2026-07-22T21:47:00.000Z",
+      "last_edited_time": "2026-07-22T21:47:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": {
+            "id": "671f1d91-d43d-4f02-af24-c95698968896",
+            "name": "1",
+            "color": "gray"
+          }
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "c9790a5a-9601-4734-a9e7-c1ba4a1278be",
+            "name": "Soporte",
+            "color": "gray"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": "https://github.com/coraza-seguridad/devops-configs/pull/8"
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": null
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81b6-9f00-d10e6a178ef7"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": null
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "���� Listo"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "c60bc6c0-0906-4ad0-88e1-42bffd3bd798",
+            "name": "Completado",
+            "color": "green"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "✅ Completado"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81d7-ba61-ebb2422d2b62"
+            }
+          ],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "4b5b5f05-b400-49a1-a32d-72ebe94423a3",
+            "name": "Media",
+            "color": "yellow"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Documentar configuración de despliegue en AWS",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Documentar configuración de despliegue en AWS",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Documentar-configuraci-n-de-despliegue-en-AWS-3a5b489ecc3c81dbb123cc5881ac0433",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-814a-b22b-f82db9453fbe",
+      "created_time": "2026-07-22T21:47:00.000Z",
+      "last_edited_time": "2026-07-22T21:47:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": {
+            "id": "80521602-15f1-43cf-b84d-44dc23d849c6",
+            "name": "3",
+            "color": "green"
+          }
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "e0d96af3-fcf9-43c7-b9f4-5047c5c91942",
+            "name": "Bug",
+            "color": "orange"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": "https://github.com/coraza-seguridad/session-manager/pull/4"
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": null
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81b6-9f00-d10e6a178ef7"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": null
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🧪 En Pruebas"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "af6896db-d8ba-4d08-af30-95507ffed3be",
+            "name": "QA / Code Review",
+            "color": "orange"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🔴 Alta"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-8185-8cde-d76f55ade87b"
+            }
+          ],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "150cfd13-d8e7-4fb3-8e8d-f90ab16e31c6",
+            "name": "Alta",
+            "color": "red"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Corregir vulnerabilidad crítica en middleware de sesiones",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Corregir vulnerabilidad crítica en middleware de sesiones",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Corregir-vulnerabilidad-cr-tica-en-middleware-de-sesiones-3a5b489ecc3c814ab22bf82db9453fbe",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-81f0-a2a7-eda6e24a0d4d",
+      "created_time": "2026-07-22T21:47:00.000Z",
+      "last_edited_time": "2026-07-22T21:47:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-8109-8949-dde7beec512e"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Puntos de Historia": {
+          "id": "%40af%7D",
+          "type": "select",
+          "select": {
+            "id": "d03439b5-44d1-4629-aa9b-3a79ba8174a3",
+            "name": "5",
+            "color": "yellow"
+          }
+        },
+        "Tipo": {
+          "id": "E%5BuR",
+          "type": "select",
+          "select": {
+            "id": "5fc610fe-f5c3-4fcf-bbc2-dbbe46e5f76a",
+            "name": "Feature",
+            "color": "purple"
+          }
+        },
+        "Link Git / PR": {
+          "id": "JuuU",
+          "type": "url",
+          "url": "https://github.com/coraza-seguridad/auth-service/pull/12"
+        },
+        "Desarrollador": {
+          "id": "OVXe",
+          "type": "select",
+          "select": null
+        },
+        "⏰ Progreso de la Jornada": {
+          "id": "Plnw",
+          "type": "formula",
+          "formula": {
+            "type": "number",
+            "number": 0.768333333333
+          }
+        },
+        "Sprint Relacionado": {
+          "id": "ZLgJ",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-81b6-9f00-d10e6a178ef7"
+            }
+          ],
+          "has_more": false
+        },
+        "Fecha de Entrega": {
+          "id": "%5Et_%5D",
+          "type": "date",
+          "date": null
+        },
+        "📊 Estado Visual": {
+          "id": "aOHZ",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "⚡ En Curso"
+          }
+        },
+        "Estado": {
+          "id": "cC%3Ft",
+          "type": "select",
+          "select": {
+            "id": "173473ce-b5c2-4858-9d5e-72d8368cb333",
+            "name": "En Curso",
+            "color": "blue"
+          }
+        },
+        "🚨 Alerta de Entrega": {
+          "id": "itb%5C",
+          "type": "formula",
+          "formula": {
+            "type": "string",
+            "string": "🔴 Alta"
+          }
+        },
+        "Wiki Relacionada": {
+          "id": "sj%7D%3C",
+          "type": "relation",
+          "relation": [
+            {
+              "id": "3a5b489e-cc3c-8111-bc57-d6c4faeb73a7"
+            }
+          ],
+          "has_more": false
+        },
+        "Prioridad": {
+          "id": "y%3Ew_",
+          "type": "select",
+          "select": {
+            "id": "150cfd13-d8e7-4fb3-8e8d-f90ab16e31c6",
+            "name": "Alta",
+            "color": "red"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Diseñar e implementar login seguro con MFA",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Diseñar e implementar login seguro con MFA",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Dise-ar-e-implementar-login-seguro-con-MFA-3a5b489ecc3c81f0a2a7eda6e24a0d4d",
+      "public_url": null,
+      "archived": false
+    }
+  ],
+  "agenda": [
+    {
+      "object": "page",
+      "id": "3b3b489e-cc3c-817b-8229-f1d47b1e78ec",
+      "created_time": "2026-08-05T14:00:00.000Z",
+      "last_edited_time": "2026-08-05T14:00:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-05",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": null
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Reunión con Mariana para organizar cuestiones de gestión documental a las 11:00 AM",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Reunión con Mariana para organizar cuestiones de gestión documental a las 11:00 AM",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Reuni-n-con-Mariana-para-organizar-cuestiones-de-gesti-n-documental-a-las-11-00-AM-3b3b489ecc3c817b8229f1d47b1e78ec",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b3b489e-cc3c-81b0-8e1b-e8812209c229",
+      "created_time": "2026-08-05T14:00:00.000Z",
+      "last_edited_time": "2026-08-05T14:00:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-06",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Reunión con Mariana para organizar gestión documental a las 11:00",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Reunión con Mariana para organizar gestión documental a las 11:00",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Reuni-n-con-Mariana-para-organizar-gesti-n-documental-a-las-11-00-3b3b489ecc3c81b08e1be8812209c229",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b2b489e-cc3c-818c-baa0-f6ead17dcc29",
+      "created_time": "2026-08-04T14:43:00.000Z",
+      "last_edited_time": "2026-08-04T14:43:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-04",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": null
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Comprar unos rótulos a las 11:00 AM",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Comprar unos rótulos a las 11:00 AM",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Comprar-unos-r-tulos-a-las-11-00-AM-3b2b489ecc3c818cbaa0f6ead17dcc29",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b2b489e-cc3c-8152-969b-c1f00598436a",
+      "created_time": "2026-08-04T14:43:00.000Z",
+      "last_edited_time": "2026-08-04T14:43:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-04",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": null
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Comprar unos rótulos a las 11:00 AM",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Comprar unos rótulos a las 11:00 AM",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Comprar-unos-r-tulos-a-las-11-00-AM-3b2b489ecc3c8152969bc1f00598436a",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b2b489e-cc3c-81cd-9107-fef31f2755e4",
+      "created_time": "2026-08-04T14:42:00.000Z",
+      "last_edited_time": "2026-08-04T14:42:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-04T11:00:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Comprar rótulos",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Comprar rótulos",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Comprar-r-tulos-3b2b489ecc3c81cd9107fef31f2755e4",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-814a-9750-c213bf37f59d",
+      "created_time": "2026-08-03T21:45:00.000Z",
+      "last_edited_time": "2026-08-03T21:45:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-07",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": null
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "ir al gimnasio",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "ir al gimnasio",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/ir-al-gimnasio-3b1b489ecc3c814a9750c213bf37f59d",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8133-8486-e666b0cae2db",
+      "created_time": "2026-08-03T20:02:00.000Z",
+      "last_edited_time": "2026-08-03T20:02:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-04",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": null
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Revisión general de programas desarrollados y gestión documental",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Revisión general de programas desarrollados y gestión documental",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Revisi-n-general-de-programas-desarrollados-y-gesti-n-documental-3b1b489ecc3c81338486e666b0cae2db",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-817a-aec9-fa7d01b65465",
+      "created_time": "2026-08-03T19:05:00.000Z",
+      "last_edited_time": "2026-08-03T19:05:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-04T10:00:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Reunión con gestión documental de Coraza Seguridad CTA para entrega de aplicación de gestión documental",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Reunión con gestión documental de Coraza Seguridad CTA para entrega de aplicación de gestión documental",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Reuni-n-con-gesti-n-documental-de-Coraza-Seguridad-CTA-para-entrega-de-aplicaci-n-de-gesti-n-documen-3b1b489ecc3c817aaec9fa7d01b65465",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81d5-8274-f29207d38183",
+      "created_time": "2026-08-03T17:28:00.000Z",
+      "last_edited_time": "2026-08-03T17:28:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-07",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Despacho: Asadero El Turco — 25kg (Marinilla)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Despacho: Asadero El Turco — 25kg (Marinilla)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Despacho-Asadero-El-Turco-25kg-Marinilla-3b1b489ecc3c81d58274f29207d38183",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-817b-b913-c8f1dd07820a",
+      "created_time": "2026-08-03T17:28:00.000Z",
+      "last_edited_time": "2026-08-03T17:28:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-08",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Despacho: Tienda La Abundancia — 15kg (Guarne)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Despacho: Tienda La Abundancia — 15kg (Guarne)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Despacho-Tienda-La-Abundancia-15kg-Guarne-3b1b489ecc3c817bb913c8f1dd07820a",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8131-9623-f812e0c33495",
+      "created_time": "2026-08-03T17:28:00.000Z",
+      "last_edited_time": "2026-08-03T17:28:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": []
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-11",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Despacho: Frutera San Jerónimo — 30kg (Rionegro)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Despacho: Frutera San Jerónimo — 30kg (Rionegro)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Despacho-Frutera-San-Jer-nimo-30kg-Rionegro-3b1b489ecc3c81319623f812e0c33495",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81e1-9db1-e44060dd20a8",
+      "created_time": "2026-08-03T16:20:00.000Z",
+      "last_edited_time": "2026-08-03T16:20:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Generado automáticamente por Aurelio basándose en frecuencia Semanal desde CRM.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Generado automáticamente por Aurelio basándose en frecuencia Semanal desde CRM.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-07",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Despacho: Asadero El Turco - 25kg (Marinilla)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Despacho: Asadero El Turco - 25kg (Marinilla)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Despacho-Asadero-El-Turco-25kg-Marinilla-3b1b489ecc3c81e19db1e44060dd20a8",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8172-ba8b-ffd7d78daed0",
+      "created_time": "2026-08-03T16:20:00.000Z",
+      "last_edited_time": "2026-08-03T16:20:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Generado automáticamente por Aurelio basándose en frecuencia Semanal desde CRM.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Generado automáticamente por Aurelio basándose en frecuencia Semanal desde CRM.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-08",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Despacho: Tienda La Abundancia - 15kg (Guarne)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Despacho: Tienda La Abundancia - 15kg (Guarne)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Despacho-Tienda-La-Abundancia-15kg-Guarne-3b1b489ecc3c8172ba8bffd7d78daed0",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-810f-912c-ddb6ee0c73a3",
+      "created_time": "2026-08-03T16:20:00.000Z",
+      "last_edited_time": "2026-08-03T16:20:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Generado automáticamente por Aurelio basándose en frecuencia Quincenal desde CRM.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Generado automáticamente por Aurelio basándose en frecuencia Quincenal desde CRM.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-11",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "e707dd89-223a-49f8-bc38-dc86cd697a6e",
+            "name": "Emprendimiento",
+            "color": "pink"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Despacho: Frutera San Jerónimo - 30kg (Rionegro)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Despacho: Frutera San Jerónimo - 30kg (Rionegro)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Despacho-Frutera-San-Jer-nimo-30kg-Rionegro-3b1b489ecc3c810f912cddb6ee0c73a3",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8112-84bb-e26a075f3967",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Revisión de gastos y saldo neto.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Revisión de gastos y saldo neto.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-10",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "05d3ccf1-4603-4b13-a8c7-228e9d671f29",
+            "name": "🧘 Rutina Estoica",
+            "color": "purple"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Planificación Semanal de Finanzas con Aurelio",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Planificación Semanal de Finanzas con Aurelio",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Planificaci-n-Semanal-de-Finanzas-con-Aurelio-3b1b489ecc3c811284bbe26a075f3967",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-812b-a243-c93ba7646c1b",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Gasto fijo mensual.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Gasto fijo mensual.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-10",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "6f28801f-01a9-4073-b585-801235a07bb5",
+            "name": "💰 Finanzas",
+            "color": "green"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Gimnasio ($100,000)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Gimnasio ($100,000)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Gimnasio-100-000-3b1b489ecc3c812ba243c93ba7646c1b",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8103-a6ef-df5a7582acbb",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "PAGAR CON TARJETA DAVIVIENDA (Apalancamiento corte 8).",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "PAGAR CON TARJETA DAVIVIENDA (Apalancamiento corte 8).",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-09",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "6f28801f-01a9-4073-b585-801235a07bb5",
+            "name": "💰 Finanzas",
+            "color": "green"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Semestre Universidad ($2,300,000)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Semestre Universidad ($2,300,000)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Semestre-Universidad-2-300-000-3b1b489ecc3c8103a6efdf5a7582acbb",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81ff-b826-d01a00fc5332",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pagar con efectivo de caja.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pagar con efectivo de caja.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-09",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "6f28801f-01a9-4073-b585-801235a07bb5",
+            "name": "💰 Finanzas",
+            "color": "green"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Arriendo ($1,000,000)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Arriendo ($1,000,000)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Arriendo-1-000-000-3b1b489ecc3c81ffb826d01a00fc5332",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8197-a01b-e2a28b62f447",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Revisar lista de pueblos y despachos.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Revisar lista de pueblos y despachos.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-08",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "db520106-2819-414f-a090-788d8b761421",
+            "name": "💼 Emprendimiento",
+            "color": "orange"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Revisión de Clientes de Chorizos con Aurelio",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Revisión de Clientes de Chorizos con Aurelio",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Revisi-n-de-Clientes-de-Chorizos-con-Aurelio-3b1b489ecc3c8197a01be2a28b62f447",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8164-ae69-ee619f64d6c6",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Práctica oral.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Práctica oral.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-06T18:00:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "0d19e026-1b5f-4f0c-bde9-dd36f0a0eb3e",
+            "name": "🎓 Clases",
+            "color": "blue"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Clase: Inglés Conversacional",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Clase: Inglés Conversacional",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Clase-Ingl-s-Conversacional-3b1b489ecc3c8164ae69ee619f64d6c6",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81a6-b4cb-d58d7fb198bf",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Estudiar vectores.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Estudiar vectores.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-05T10:00:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "0d19e026-1b5f-4f0c-bde9-dd36f0a0eb3e",
+            "name": "🎓 Clases",
+            "color": "blue"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Clase: Álgebra Lineal",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Clase: Álgebra Lineal",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Clase-lgebra-Lineal-3b1b489ecc3c81a6b4cbd58d7fb198bf",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81c8-ae40-de959c39ebcb",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "b1b2f526-32e0-4297-9ee4-c61108dd2895",
+            "name": "Completado",
+            "color": "green"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Introducción a Algoritmos",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Introducción a Algoritmos",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-03T08:00:00.000+00:00",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "0d19e026-1b5f-4f0c-bde9-dd36f0a0eb3e",
+            "name": "🎓 Clases",
+            "color": "blue"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Clase: Algoritmos",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Clase: Algoritmos",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Clase-Algoritmos-3b1b489ecc3c81c8ae40de959c39ebcb",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8132-89c1-dc9822e9df1f",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Vencido. Realizar transferencia.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Vencido. Realizar transferencia.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-08-01",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "6f28801f-01a9-4073-b585-801235a07bb5",
+            "name": "💰 Finanzas",
+            "color": "green"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Plan Mirle ($40.000)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Plan Mirle ($40.000)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Plan-Mirle-40-000-3b1b489ecc3c813289c1dc9822e9df1f",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8105-9ff0-cf4d9132bf53",
+      "created_time": "2026-08-03T15:08:00.000Z",
+      "last_edited_time": "2026-08-03T15:08:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-8186-a519-fe9ed345c6d7"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Estado": {
+          "id": "%5BNmw",
+          "type": "select",
+          "select": {
+            "id": "e8cd1f98-8969-4dce-a12e-ef3c060d933d",
+            "name": "Pendiente",
+            "color": "red"
+          }
+        },
+        "Nota": {
+          "id": "%5EKe%5B",
+          "type": "rich_text",
+          "rich_text": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Vencido. Pagar por PSE.",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Vencido. Pagar por PSE.",
+              "href": null
+            }
+          ]
+        },
+        "Fecha": {
+          "id": "dl%5EG",
+          "type": "date",
+          "date": {
+            "start": "2026-07-31",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Categoría": {
+          "id": "p%5DrM",
+          "type": "select",
+          "select": {
+            "id": "6f28801f-01a9-4073-b585-801235a07bb5",
+            "name": "💰 Finanzas",
+            "color": "green"
+          }
+        },
+        "Actividad": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pago Servicios Públicos ($98.576)",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pago Servicios Públicos ($98.576)",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pago-Servicios-P-blicos-98-576-3b1b489ecc3c81059ff0cf4d9132bf53",
+      "public_url": null,
+      "archived": false
+    }
+  ],
+  "crm": [
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-814a-b3ac-f03503b834b2",
+      "created_time": "2026-08-03T15:49:00.000Z",
+      "last_edited_time": "2026-08-03T15:49:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-81c0-84e9-ff1eec4e3f75"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Pedido Promedio (Kilos)": {
+          "id": "%3AXMf",
+          "type": "number",
+          "number": 20
+        },
+        "Pueblo / Ubicación": {
+          "id": "%3CjqG",
+          "type": "select",
+          "select": {
+            "id": "16ca3a81-d035-4b91-aa64-2f4656445aff",
+            "name": "La Ceja",
+            "color": "purple"
+          }
+        },
+        "Estado Último Pago": {
+          "id": "GTVb",
+          "type": "select",
+          "select": {
+            "id": "b60ed88f-4746-40f5-aaef-a4964eb0a193",
+            "name": "🚨 En Mora",
+            "color": "red"
+          }
+        },
+        "Último Envío": {
+          "id": "YZQ%40",
+          "type": "date",
+          "date": {
+            "start": "2026-07-24",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Frecuencia Despacho": {
+          "id": "%5EjbV",
+          "type": "select",
+          "select": {
+            "id": "6cadded5-5823-4a8b-8139-c10c90a7c6b2",
+            "name": "Semanal",
+            "color": "blue"
+          }
+        },
+        "Condiciones Pago": {
+          "id": "ajCA",
+          "type": "select",
+          "select": {
+            "id": "33b59998-9716-4651-971a-85c626dedf51",
+            "name": "A 8 días",
+            "color": "gray"
+          }
+        },
+        "Cliente / Puesto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Puesto de Mercado - Don José",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Puesto de Mercado - Don José",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Puesto-de-Mercado-Don-Jos-3b1b489ecc3c814ab3acf03503b834b2",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81f1-9001-f776ac80754c",
+      "created_time": "2026-08-03T15:49:00.000Z",
+      "last_edited_time": "2026-08-03T15:49:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-81c0-84e9-ff1eec4e3f75"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Pedido Promedio (Kilos)": {
+          "id": "%3AXMf",
+          "type": "number",
+          "number": 30
+        },
+        "Pueblo / Ubicación": {
+          "id": "%3CjqG",
+          "type": "select",
+          "select": {
+            "id": "d5d32f8d-2fb4-47d0-a2d5-5389b9d483e4",
+            "name": "Rionegro",
+            "color": "green"
+          }
+        },
+        "Estado Último Pago": {
+          "id": "GTVb",
+          "type": "select",
+          "select": {
+            "id": "a7bfdcaa-5ca7-4a26-b6f2-8898c5a94c8d",
+            "name": "🟢 Al día",
+            "color": "green"
+          }
+        },
+        "Último Envío": {
+          "id": "YZQ%40",
+          "type": "date",
+          "date": {
+            "start": "2026-07-28",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Frecuencia Despacho": {
+          "id": "%5EjbV",
+          "type": "select",
+          "select": {
+            "id": "5a31d40b-382f-44f7-9b5f-c927b990414b",
+            "name": "Quincenal",
+            "color": "yellow"
+          }
+        },
+        "Condiciones Pago": {
+          "id": "ajCA",
+          "type": "select",
+          "select": {
+            "id": "a8c822f6-1cd2-4b1b-af15-241d850b8951",
+            "name": "Contado",
+            "color": "green"
+          }
+        },
+        "Cliente / Puesto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Frutera San Jerónimo",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Frutera San Jerónimo",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Frutera-San-Jer-nimo-3b1b489ecc3c81f19001f776ac80754c",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-81c1-abfe-cbc2244e8626",
+      "created_time": "2026-08-03T15:49:00.000Z",
+      "last_edited_time": "2026-08-03T15:49:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-81c0-84e9-ff1eec4e3f75"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Pedido Promedio (Kilos)": {
+          "id": "%3AXMf",
+          "type": "number",
+          "number": 15
+        },
+        "Pueblo / Ubicación": {
+          "id": "%3CjqG",
+          "type": "select",
+          "select": {
+            "id": "4746a2f5-4eae-4d5d-aa52-9b0c838a74ad",
+            "name": "Guarne",
+            "color": "orange"
+          }
+        },
+        "Estado Último Pago": {
+          "id": "GTVb",
+          "type": "select",
+          "select": {
+            "id": "32e530a3-3faf-484d-88ca-41415a871880",
+            "name": "⏳ Pendiente",
+            "color": "orange"
+          }
+        },
+        "Último Envío": {
+          "id": "YZQ%40",
+          "type": "date",
+          "date": {
+            "start": "2026-08-01",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Frecuencia Despacho": {
+          "id": "%5EjbV",
+          "type": "select",
+          "select": {
+            "id": "6cadded5-5823-4a8b-8139-c10c90a7c6b2",
+            "name": "Semanal",
+            "color": "blue"
+          }
+        },
+        "Condiciones Pago": {
+          "id": "ajCA",
+          "type": "select",
+          "select": {
+            "id": "33b59998-9716-4651-971a-85c626dedf51",
+            "name": "A 8 días",
+            "color": "gray"
+          }
+        },
+        "Cliente / Puesto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Tienda La Abundancia",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Tienda La Abundancia",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Tienda-La-Abundancia-3b1b489ecc3c81c1abfecbc2244e8626",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3b1b489e-cc3c-8101-8876-d9f4786b6404",
+      "created_time": "2026-08-03T15:49:00.000Z",
+      "last_edited_time": "2026-08-03T15:49:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3b1b489e-cc3c-81c0-84e9-ff1eec4e3f75"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Pedido Promedio (Kilos)": {
+          "id": "%3AXMf",
+          "type": "number",
+          "number": 25
+        },
+        "Pueblo / Ubicación": {
+          "id": "%3CjqG",
+          "type": "select",
+          "select": {
+            "id": "fc02234f-1c53-4c00-bf28-598748b8951f",
+            "name": "Marinilla",
+            "color": "blue"
+          }
+        },
+        "Estado Último Pago": {
+          "id": "GTVb",
+          "type": "select",
+          "select": {
+            "id": "a7bfdcaa-5ca7-4a26-b6f2-8898c5a94c8d",
+            "name": "🟢 Al día",
+            "color": "green"
+          }
+        },
+        "Último Envío": {
+          "id": "YZQ%40",
+          "type": "date",
+          "date": {
+            "start": "2026-07-31",
+            "end": null,
+            "time_zone": null
+          }
+        },
+        "Frecuencia Despacho": {
+          "id": "%5EjbV",
+          "type": "select",
+          "select": {
+            "id": "6cadded5-5823-4a8b-8139-c10c90a7c6b2",
+            "name": "Semanal",
+            "color": "blue"
+          }
+        },
+        "Condiciones Pago": {
+          "id": "ajCA",
+          "type": "select",
+          "select": {
+            "id": "a8c822f6-1cd2-4b1b-af15-241d850b8951",
+            "name": "Contado",
+            "color": "green"
+          }
+        },
+        "Cliente / Puesto": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Asadero El Turco",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Asadero El Turco",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Asadero-El-Turco-3b1b489ecc3c81018876d9f4786b6404",
+      "public_url": null,
+      "archived": false
+    }
+  ],
+  "coraza": [
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-81fc-8baf-d144c5e9ebb8",
+      "created_time": "2026-07-22T21:45:00.000Z",
+      "last_edited_time": "2026-07-22T21:45:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-81fb-bc72-ce06f36378ee"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Desarrollador": {
+          "id": "%3DwKy",
+          "type": "select",
+          "select": {
+            "id": "70653278-a89b-4c31-a65b-62d254160d62",
+            "name": "Luis Martinez",
+            "color": "green"
+          }
+        },
+        "Link a Git / PR": {
+          "id": "PG%3AW",
+          "type": "url",
+          "url": null
+        },
+        "Estado": {
+          "id": "WIZP",
+          "type": "select",
+          "select": {
+            "id": "c37a588f-1048-4843-8ae5-7eb1b86d6608",
+            "name": "QA / Pruebas",
+            "color": "orange"
+          }
+        },
+        "Prioridad": {
+          "id": "n%3BuO",
+          "type": "select",
+          "select": {
+            "id": "e7f08216-da1d-4678-96a3-f3e658779e9a",
+            "name": "Alta",
+            "color": "red"
+          }
+        },
+        "Fecha de Entrega": {
+          "id": "oE%5B%5B",
+          "type": "date",
+          "date": null
+        },
+        "Tipo de Tarea": {
+          "id": "uvrl",
+          "type": "select",
+          "select": {
+            "id": "4ae03b2a-68fe-4299-b88b-579f46424498",
+            "name": "Soporte",
+            "color": "gray"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Pruebas de penetración iniciales en ambiente QA",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Pruebas de penetración iniciales en ambiente QA",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Pruebas-de-penetraci-n-iniciales-en-ambiente-QA-3a5b489ecc3c81fc8bafd144c5e9ebb8",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-814e-9359-cef81842f32d",
+      "created_time": "2026-07-22T21:45:00.000Z",
+      "last_edited_time": "2026-07-22T21:45:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-81fb-bc72-ce06f36378ee"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Desarrollador": {
+          "id": "%3DwKy",
+          "type": "select",
+          "select": {
+            "id": "1ead73bf-cd8f-4f8b-a5f9-61e61c7a6d5a",
+            "name": "Por asignar",
+            "color": "gray"
+          }
+        },
+        "Link a Git / PR": {
+          "id": "PG%3AW",
+          "type": "url",
+          "url": null
+        },
+        "Estado": {
+          "id": "WIZP",
+          "type": "select",
+          "select": {
+            "id": "292838e7-677b-4083-8d3e-ffd0ff539e5e",
+            "name": "Backlog",
+            "color": "gray"
+          }
+        },
+        "Prioridad": {
+          "id": "n%3BuO",
+          "type": "select",
+          "select": {
+            "id": "b9b06056-135d-4de6-ae2c-5fb6cd1e70ae",
+            "name": "Media",
+            "color": "yellow"
+          }
+        },
+        "Fecha de Entrega": {
+          "id": "oE%5B%5B",
+          "type": "date",
+          "date": null
+        },
+        "Tipo de Tarea": {
+          "id": "uvrl",
+          "type": "select",
+          "select": {
+            "id": "41992192-09e4-44d7-926d-4e6e264795bd",
+            "name": "Refactor",
+            "color": "brown"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Refactorizar endpoints de auditoría de seguridad",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Refactorizar endpoints de auditoría de seguridad",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Refactorizar-endpoints-de-auditor-a-de-seguridad-3a5b489ecc3c814e9359cef81842f32d",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-8182-b821-fa67b2b1ac1d",
+      "created_time": "2026-07-22T21:45:00.000Z",
+      "last_edited_time": "2026-07-22T21:45:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-81fb-bc72-ce06f36378ee"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Desarrollador": {
+          "id": "%3DwKy",
+          "type": "select",
+          "select": {
+            "id": "8a6d9749-9062-4092-b650-07dd6ff0d6e3",
+            "name": "Ana Rodriguez",
+            "color": "pink"
+          }
+        },
+        "Link a Git / PR": {
+          "id": "PG%3AW",
+          "type": "url",
+          "url": null
+        },
+        "Estado": {
+          "id": "WIZP",
+          "type": "select",
+          "select": {
+            "id": "383b695c-9cd6-44f8-85f2-0854b397b0ff",
+            "name": "En Curso",
+            "color": "blue"
+          }
+        },
+        "Prioridad": {
+          "id": "n%3BuO",
+          "type": "select",
+          "select": {
+            "id": "e7f08216-da1d-4678-96a3-f3e658779e9a",
+            "name": "Alta",
+            "color": "red"
+          }
+        },
+        "Fecha de Entrega": {
+          "id": "oE%5B%5B",
+          "type": "date",
+          "date": null
+        },
+        "Tipo de Tarea": {
+          "id": "uvrl",
+          "type": "select",
+          "select": {
+            "id": "0409831c-cbfa-4f11-bd60-9b3f9277e21a",
+            "name": "Bug",
+            "color": "orange"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Resolver bug de cierre de sesión inesperado en móviles",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Resolver bug de cierre de sesión inesperado en móviles",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Resolver-bug-de-cierre-de-sesi-n-inesperado-en-m-viles-3a5b489ecc3c8182b821fa67b2b1ac1d",
+      "public_url": null,
+      "archived": false
+    },
+    {
+      "object": "page",
+      "id": "3a5b489e-cc3c-8108-8cc7-f21eef39a4e5",
+      "created_time": "2026-07-22T21:45:00.000Z",
+      "last_edited_time": "2026-07-22T21:45:00.000Z",
+      "created_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "last_edited_by": {
+        "object": "user",
+        "id": "3a5b489e-cc3c-8116-b7d0-00278bc570b4"
+      },
+      "cover": null,
+      "icon": null,
+      "parent": {
+        "type": "database_id",
+        "database_id": "3a5b489e-cc3c-81fb-bc72-ce06f36378ee"
+      },
+      "in_trash": false,
+      "is_archived": false,
+      "is_locked": false,
+      "properties": {
+        "Desarrollador": {
+          "id": "%3DwKy",
+          "type": "select",
+          "select": {
+            "id": "a9c3e00c-b7fb-4996-84a2-67b5e2cd6e6f",
+            "name": "Carlos Gomez",
+            "color": "blue"
+          }
+        },
+        "Link a Git / PR": {
+          "id": "PG%3AW",
+          "type": "url",
+          "url": null
+        },
+        "Estado": {
+          "id": "WIZP",
+          "type": "select",
+          "select": {
+            "id": "c35cb172-62af-407d-9370-97fddbc9e17e",
+            "name": "Por Hacer",
+            "color": "red"
+          }
+        },
+        "Prioridad": {
+          "id": "n%3BuO",
+          "type": "select",
+          "select": {
+            "id": "e7f08216-da1d-4678-96a3-f3e658779e9a",
+            "name": "Alta",
+            "color": "red"
+          }
+        },
+        "Fecha de Entrega": {
+          "id": "oE%5B%5B",
+          "type": "date",
+          "date": null
+        },
+        "Tipo de Tarea": {
+          "id": "uvrl",
+          "type": "select",
+          "select": {
+            "id": "cd1c6c2e-12aa-405a-b0df-721cf68a9853",
+            "name": "Feature",
+            "color": "purple"
+          }
+        },
+        "Tarea": {
+          "id": "title",
+          "type": "title",
+          "title": [
+            {
+              "type": "text",
+              "text": {
+                "content": "Configurar Módulo de Autenticación y Login Seguro",
+                "link": null
+              },
+              "annotations": {
+                "bold": false,
+                "italic": false,
+                "strikethrough": false,
+                "underline": false,
+                "code": false,
+                "color": "default"
+              },
+              "plain_text": "Configurar Módulo de Autenticación y Login Seguro",
+              "href": null
+            }
+          ]
+        }
+      },
+      "url": "https://app.notion.com/p/Configurar-M-dulo-de-Autenticaci-n-y-Login-Seguro-3a5b489ecc3c81088cc7f21eef39a4e5",
+      "public_url": null,
+      "archived": false
+    }
+  ]
+}

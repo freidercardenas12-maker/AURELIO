@@ -401,9 +401,11 @@ async function main() {
   await registerBotCommands();
   startJobs();
 
-  // Start Self-Healing Process Watchdog
+  // Start Self-Healing Process Watchdog & AI Warm-Up Pinger
   const { startAutoHealer } = require('./utils/autoHealer');
+  const { startWarmupPinger } = require('./services/warmup');
   startAutoHealer(3000, 30000);
+  startWarmupPinger(4 * 60 * 1000);
 
   setInterval(() => {
     pollTelegram(
