@@ -27,6 +27,22 @@ async function transcribeAudio(audioBuffer) {
     } catch (e) {
       logger.error(`[Audio Transcribe] Error on model ${model}: ${e.message}`);
     }
+  // Fallback to HuggingFace Whisper API if Gemini hits rate limit
+  if (process.env.HUGGINGFACE_TOKEN) {
+    try {
+      logger.info('[Audio Transcribe] Gemini rate limited. Failing over to HuggingFace Whisper...');
+      const hfUrl = 'https://api-inference.huggingface.co/models/openai/whisper-large-v3-turbo';
+      const hfRes = await makeRequest(hfUrl, 'POST', {
+        'Authorization': `Bearer ${process.env.HUGGINGFACE_TOKEN}`,
+        'Content-Type': 'audio/ogg'
+      }, audioBuffer);
+      if (hfRes.body?.text) {
+        logger.info(`[Audio Transcribe] HuggingFace Whisper success: "${hfRes.body.text}"`);
+        return hfRes.body.text.trim();
+      }
+    } catch (e) {
+      logger.warn(`[Audio Transcribe] HuggingFace fallback error: ${e.message}`);
+    }
   }
 
   throw new Error("No se pudo procesar el audio en este momento. Por favor reenvíalo o escríbelo en texto.");

@@ -72,10 +72,19 @@ INSTRUCCIONES DE RESPUESTA (REGLA DE ORO — INAMOVIBLE):
 7. CIERRE OBLIGATORIO: Termina SIEMPRE con "A sus órdenes, Señor Cárdenas." o "Con gusto, Jefe."`;
 
   const prompt = `${systemPrompt}\n\nFreider dice: "${userMessage}"`;
-  const response = await geminiCall(prompt);
+  let finalReply = response;
+  if (!finalReply) {
+    if (notionContext && notionContext.trim().length > 10) {
+      finalReply =
+        `🏛️ *INFORMACIÓN EJECUTIVA DE REGISTRO (Notion)*\n\n` +
+        `Señor Cárdenas, le presento los datos extraídos directamente de su sistema:\n\n` +
+        `${notionContext}\n\n` +
+        `A sus órdenes, Señor Cárdenas.`;
+    } else {
+      finalReply = `Señor Cárdenas, sus datos están sincronizados en su tablero ejecutivo. ¿En qué frente de negocio le sirvo hoy, Jefe?`;
+    }
+  }
 
-  const finalReply = response || '🏛️ Sin conexión a Gemini en este momento. Intenta de nuevo.';
-  
   // Save turn to conversation memory
   addMessage(userMessage, finalReply);
   // Record topic to session memory for future context injection

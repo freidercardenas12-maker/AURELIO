@@ -1,6 +1,11 @@
 {
   "topics": [
     {
+      "text": "Aurelio, buenas tardes, ¿cuáles son mis deudas? Todas, todas, independientemente a las fechas, por favor dime cuáles.",
+      "intent": "CONVERSACION",
+      "ts": "2026-08-06T21:22:13.683Z"
+    },
+    {
       "text": "En qué modelo estás operando o qué versión?",
       "intent": "CONVERSACION",
       "ts": "2026-08-06T19:20:36.670Z"
@@ -11,6 +16,11 @@
       "ts": "2026-08-06T14:56:31.419Z"
     }
   ],
-  "lastSeen": "2026-08-06T19:20:36.670Z",
-  "pendingFollowups": []
+  "lastSeen": "2026-08-06T21:22:13.683Z",
+  "pendingFollowups": [
+    {
+      "text": "Aurelio, buenas tardes, ¿cuáles son mis deudas? Todas, todas, independientemente",
+      "ts": "2026-08-06T21:22:13.683Z"
+    }
+  ]
 }
