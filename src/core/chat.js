@@ -2,6 +2,7 @@ const { geminiCall } = require('../services/gemini');
 const { buildContext } = require('./context');
 const { getTodayStr } = require('../utils/dates');
 const { getMemoryContext, addMessage } = require('../services/memory');
+const { recordTopic, getMemorySummary } = require('./sessionMemory');
 
 const PERFIL_FREIDER = `
 PERFIL DE FREIDER CÁRDENAS (Tu jefe):
@@ -40,12 +41,13 @@ async function geminiChat(userMessage, intentType = 'CONVERSACION') {
   }
 
   const memoryContext = getMemoryContext();
+  const sessionSummary = getMemorySummary();
 
   const systemPrompt = `Eres AURELIO — El secretario estoico, estratega y asistente personal de Freider Cárdenas.
 
 ${PERFIL_FREIDER}
 
-${memoryContext}
+${memoryContext}${sessionSummary}
 
 ${notionContext ? `════ DATOS REALES DE NOTION (HOY: ${getTodayStr()}) ════\n${notionContext}\n════════════════════════════════════════════════════` : ''}
 
@@ -65,6 +67,8 @@ INSTRUCCIONES DE RESPUESTA (REGLA DE ORO):
   
   // Save turn to conversation memory
   addMessage(userMessage, finalReply);
+  // Record topic to session memory for future context injection
+  recordTopic(userMessage, intentType);
 
   return finalReply;
 }
