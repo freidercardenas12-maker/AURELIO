@@ -13,6 +13,15 @@ const { createPage } = require('./services/notion');
 const { createReceiptEntry } = require('./services/notion-attachments');
 const { generateCalendarLink } = require('./services/calendar');
 const { startJobs, morningBriefing, syncCRM } = require('./jobs/scheduler');
+const { getCacheStats } = require('./utils/notionCache');
+
+// ─── GLOBAL ERROR BOUNDARY (prevents crash on unhandled errors) ───
+process.on('uncaughtException', (err) => {
+  logger.error(`[UNCAUGHT EXCEPTION] ${err.message}`, { stack: err.stack });
+});
+process.on('unhandledRejection', (reason) => {
+  logger.error(`[UNHANDLED REJECTION] ${reason?.message || reason}`);
+});
 
 // SimpleQueue for sequential message processing (zero race conditions, 100% CJS compatible)
 const messageQueue = new SimpleQueue(1);
@@ -398,6 +407,9 @@ async function main() {
   }, 1500);
 
   logger.info('✅ [Aurelio Bot 10/10 PERFECTO] Text + Male Neural Voice + Vision + TTS + WhatsApp + Calendar + Memory Store + Notion Attachments — ALL ACTIVE.');
+
+  // Expose cache stats on /health for observability
+  app.get('/cache', (req, res) => res.json({ cache: getCacheStats(), uptime: process.uptime() }));
 }
 
 main().catch(err => {

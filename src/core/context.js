@@ -1,143 +1,154 @@
+/**
+ * AURELIO — Context Builder (REFACTORED v10.0)
+ * 
+ * KEY IMPROVEMENTS:
+ * 1. ⚡ Parallel Notion queries (Promise.all) instead of sequential await chains
+ * 2. 🗄️ In-memory cache (5-min TTL) — repeated queries are instant (0ms API calls)
+ * 3. 🛡️ Retry + timeout protection via parallelSafe
+ * 4. 🚀 CONSULTAR_TODO now runs all 6 DBs in parallel (was sequential)
+ */
 const config = require('../config');
 const { queryDB } = require('../services/notion');
 const { txt, sel, num, dt } = require('../utils/notion-props');
 const { getTodayStr } = require('../utils/dates');
+const { cachedQuery } = require('../utils/notionCache');
+const { parallelSafe } = require('../utils/retry');
 const logger = require('../utils/logger');
 
+// Cached query helpers
+const cq = (dbId) => cachedQuery(dbId, () => queryDB(dbId));
+
+function buildFinancesLines(rows) {
+  const lines = ['═══ FINANZAS Y DEUDAS (Notion) ═══'];
+  if (!rows || !rows.length) { lines.push('Sin registros financieros.'); return lines; }
+  rows.forEach(r => {
+    const p = r.properties || {};
+    lines.push(`• ${txt(p['Concepto']) || 'Sin nombre'}: $${num(p['Monto']).toLocaleString('es-CO')} | ${sel(p['Tipo'])} | ${sel(p['Estado'])} | Vence: ${dt(p['Fecha de Vencimiento'])}`);
+  });
+  return lines;
+}
+
+function buildTasksLines(rows) {
+  const lines = ['═══ KANBAN DE TAREAS (Notion) ═══'];
+  if (!rows) { lines.push('Sin tareas.'); return lines; }
+  const pending = rows.filter(t => { const s = sel(t.properties?.['Estado']); return s === 'To Do' || s === 'In Progress'; });
+  if (!pending.length) { lines.push('Sin tareas pendientes. ✅'); return lines; }
+  pending.forEach(t => {
+    const p = t.properties || {};
+    lines.push(`• ${txt(p['Tarea']) || 'Sin título'}: ${sel(p['Estado'])} | Entrega: ${dt(p['Fecha de Entrega'])}${sel(p['Prioridad']) ? ' | ' + sel(p['Prioridad']) : ''}`);
+  });
+  return lines;
+}
+
+function buildAgendaLines(rows) {
+  const lines = ['═══ AGENDA Y EVENTOS (Notion) ═══'];
+  if (!rows) { lines.push('Sin eventos.'); return lines; }
+  const today = getTodayStr();
+  const upcoming = rows.filter(e => { const f = e.properties?.['Fecha']?.date?.start; return f && f >= today; }).slice(0, 8);
+  if (!upcoming.length) { lines.push('Sin eventos próximos.'); return lines; }
+  upcoming.forEach(e => {
+    const p = e.properties || {};
+    lines.push(`• ${txt(p['Actividad']) || '(sin nombre)'}: ${dt(p['Fecha'])} | ${sel(p['Estado'])}`);
+  });
+  return lines;
+}
+
+function buildCRMLines(rows) {
+  const lines = ['═══ CLIENTES CHORIZOS - CRM (Notion) ═══'];
+  if (!rows) { lines.push('Sin clientes.'); return lines; }
+  rows.slice(0, 10).forEach(c => {
+    const p = c.properties || {};
+    const nombre = txt(p['Cliente / Puesto']);
+    if (nombre) lines.push(`• ${nombre} (${sel(p['Pueblo / Ubicación'])}): Frecuencia: ${sel(p['Frecuencia Despacho'])} | Último envío: ${dt(p['Último Envío'])}`);
+  });
+  return lines;
+}
+
+function buildCorazaLines(rows) {
+  const lines = ['═══ CORAZA SEGURIDAD CTA — TABLERO DE DESARROLLO (Notion) ═══'];
+  if (!rows) { lines.push('Sin tareas en Coraza.'); return lines; }
+  const activas = rows.filter(t => { const e = sel(t.properties?.['Estado']); return e !== 'Completado' && e !== 'Cancelado'; });
+  if (!activas.length) { lines.push('✅ Sin tareas activas en Coraza.'); return lines; }
+  activas.slice(0, 10).forEach(t => {
+    const p = t.properties || {};
+    lines.push(`• ${txt(p['Tarea']) || 'Sin título'}: ${sel(p['Estado'])} | ${sel(p['Tipo de Tarea'])}${sel(p['Prioridad']) ? ' | ' + sel(p['Prioridad']) : ''} | Entrega: ${dt(p['Fecha de Entrega'])}`);
+  });
+  return lines;
+}
+
+function buildEstrategiaLines(estrategiaRows, sprintRows) {
+  const lines = ['═══ ESTRATEGIA DE NEGOCIOS (Notion) ═══'];
+  if (estrategiaRows) {
+    estrategiaRows.forEach(e => {
+      const p = e.properties || {};
+      const neg = txt(p['Negocio']);
+      if (neg) lines.push(`• ${neg} [P${num(p['Prioridad'])}]: ${txt(p['Función Principal'])} | Capital: $${num(p['Capital Sugerido']).toLocaleString('es-CO')} | Margen: ${txt(p['Márgenes Estimados'])}`);
+    });
+  }
+  if (sprintRows) {
+    const activos = sprintRows.filter(s => sel(s.properties?.['Estado']) !== 'Completado');
+    if (activos.length > 0) {
+      lines.push('═══ SPRINTS ACTIVOS (Notion) ═══');
+      activos.forEach(s => {
+        const p = s.properties || {};
+        lines.push(`• ${txt(p['Nombre'])}: ${txt(p['Objetivo'])} | ${sel(p['Estado'])}`);
+      });
+    }
+  }
+  return lines;
+}
+
 async function buildContext(type) {
-  const lines = [];
-
+  const allLines = [];
   try {
-    if (type === 'CONSULTAR_FINANZAS' || type === 'CONSULTAR_TODO') {
-      const rows = await queryDB(config.FINANCES_DB_ID);
-      lines.push('═══ FINANZAS Y DEUDAS (Notion) ═══');
-      if (!rows.length) {
-        lines.push('Sin registros financieros.');
-      } else {
-        rows.forEach(r => {
-          const p = r.properties || {};
-          const c = txt(p['Concepto']) || 'Sin nombre';
-          const m = num(p['Monto']);
-          const e = sel(p['Estado']);
-          const t = sel(p['Tipo']);
-          const v = dt(p['Fecha de Vencimiento']);
-          lines.push(`• ${c}: $${m.toLocaleString('es-CO')} | ${t} | ${e} | Vence: ${v}`);
-        });
-      }
-    }
-
-    if (type === 'CONSULTAR_TAREAS' || type === 'CONSULTAR_TODO') {
-      const tasks = await queryDB(config.TASKS_DB_ID);
-      lines.push('═══ KANBAN DE TAREAS (Notion) ═══');
-      const pending = tasks.filter(t => {
-        const s = sel(t.properties?.['Estado']);
-        return s === 'To Do' || s === 'In Progress';
-      });
-      if (!pending.length) {
-        lines.push('Sin tareas pendientes. ✅');
-      } else {
-        pending.forEach(t => {
-          const p = t.properties || {};
-          const titulo = txt(p['Tarea']) || 'Sin título';
-          const estado = sel(p['Estado']);
-          const fecha  = dt(p['Fecha de Entrega']);
-          const prio   = sel(p['Prioridad']);
-          lines.push(`• ${titulo}: ${estado} | Entrega: ${fecha}${prio ? ' | ' + prio : ''}`);
-        });
-      }
-    }
-
-    if (type === 'CONSULTAR_AGENDA' || type === 'CONSULTAR_TODO') {
-      const agenda = await queryDB(config.AGENDA_DB_ID);
-      lines.push('═══ AGENDA Y EVENTOS (Notion) ═══');
-      const today = getTodayStr();
-      const upcoming = agenda.filter(e => {
-        const f = e.properties?.['Fecha']?.date?.start;
-        return f && f >= today;
-      }).slice(0, 8);
-      if (!upcoming.length) {
-        lines.push('Sin eventos próximos.');
-      } else {
-        upcoming.forEach(e => {
-          const p = e.properties || {};
-          const a   = txt(p['Actividad']) || '(sin nombre)';
-          const f   = dt(p['Fecha']);
-          const est = sel(p['Estado']);
-          lines.push(`• ${a}: ${f} | ${est}`);
-        });
-      }
-    }
-
-    if (type === 'CONSULTAR_AGENDA' || type === 'CONSULTAR_TODO') {
-      const crm = await queryDB(config.CRM_DB_ID);
-      lines.push('═══ CLIENTES CHORIZOS - CRM (Notion) ═══');
-      crm.slice(0, 10).forEach(c => {
-        const p      = c.properties || {};
-        const nombre = txt(p['Cliente / Puesto']);
-        const pueblo = sel(p['Pueblo / Ubicación']);
-        const freq   = sel(p['Frecuencia Despacho']);
-        const ultimo = dt(p['Último Envío']);
-        if (nombre) lines.push(`• ${nombre} (${pueblo}): Frecuencia: ${freq} | Último envío: ${ultimo}`);
-      });
-    }
-
-    if (type === 'CONSULTAR_TODO' || type === 'CONSULTAR_CORAZA') {
-      const coraza = await queryDB(config.CORAZA_DEV_DB_ID);
-      lines.push('═══ CORAZA SEGURIDAD CTA — TABLERO DE DESARROLLO (Notion) ═══');
-      if (!coraza.length) {
-        lines.push('Sin tareas registradas en Coraza.');
-      } else {
-        const activas = coraza.filter(t => {
-          const est = sel(t.properties?.['Estado']);
-          return est !== 'Completado' && est !== 'Cancelado';
-        });
-        if (!activas.length) {
-          lines.push('✅ Sin tareas activas en Coraza.');
-        } else {
-          activas.slice(0, 10).forEach(t => {
-            const p     = t.properties || {};
-            const tarea = txt(p['Tarea']) || 'Sin título';
-            const est   = sel(p['Estado']);
-            const prio  = sel(p['Prioridad']);
-            const tipo  = sel(p['Tipo de Tarea']);
-            const fecha = dt(p['Fecha de Entrega']);
-            lines.push(`• ${tarea}: ${est} | ${tipo}${prio ? ' | ' + prio : ''} | Entrega: ${fecha}`);
-          });
-        }
-      }
-    }
-
     if (type === 'CONSULTAR_TODO') {
-      const estrategia = await queryDB(config.ESTRATEGIA_DB_ID);
-      lines.push('═══ ESTRATEGIA DE NEGOCIOS (Notion) ═══');
-      estrategia.forEach(e => {
-        const p    = e.properties || {};
-        const neg  = txt(p['Negocio']);
-        const fun  = txt(p['Función Principal']);
-        const prio = num(p['Prioridad']);
-        const cap  = num(p['Capital Sugerido']);
-        const mar  = txt(p['Márgenes Estimados']);
-        if (neg) lines.push(`• ${neg} [P${prio}]: ${fun} | Capital: $${cap.toLocaleString('es-CO')} | Margen: ${mar}`);
-      });
+      // ⚡ PARALLEL: Run all 6 DB queries simultaneously
+      logger.info('[Context] Fetching all DBs in parallel...');
+      const [finances, tasks, agenda, crm, coraza, estrategia, sprints] = await parallelSafe([
+        () => cq(config.FINANCES_DB_ID),
+        () => cq(config.TASKS_DB_ID),
+        () => cq(config.AGENDA_DB_ID),
+        () => cq(config.CRM_DB_ID),
+        () => cq(config.CORAZA_DEV_DB_ID),
+        () => cq(config.ESTRATEGIA_DB_ID),
+        () => cq(config.SPRINTS_DB_ID)
+      ], 8000);
 
-      const sprints = await queryDB(config.SPRINTS_DB_ID);
-      const activos = sprints.filter(s => sel(s.properties?.['Estado']) !== 'Completado');
-      if (activos.length > 0) {
-        lines.push('═══ SPRINTS ACTIVOS (Notion) ═══');
-        activos.forEach(s => {
-          const p      = s.properties || {};
-          const nombre = txt(p['Nombre']);
-          const obj    = txt(p['Objetivo']);
-          const est    = sel(p['Estado']);
-          lines.push(`• ${nombre}: ${obj} | ${est}`);
-        });
+      allLines.push(
+        ...buildFinancesLines(finances),
+        ...buildTasksLines(tasks),
+        ...buildAgendaLines(agenda),
+        ...buildCRMLines(crm),
+        ...buildCorazaLines(coraza),
+        ...buildEstrategiaLines(estrategia, sprints)
+      );
+
+    } else {
+      // ⚡ PARALLEL: Fetch only the DBs needed for this intent
+      const fetches = [];
+      if (type === 'CONSULTAR_FINANZAS') fetches.push(['finances', () => cq(config.FINANCES_DB_ID)]);
+      if (type === 'CONSULTAR_TAREAS') fetches.push(['tasks', () => cq(config.TASKS_DB_ID)]);
+      if (type === 'CONSULTAR_AGENDA') {
+        fetches.push(['agenda', () => cq(config.AGENDA_DB_ID)]);
+        fetches.push(['crm', () => cq(config.CRM_DB_ID)]);
       }
-    }
+      if (type === 'CONSULTAR_CORAZA') fetches.push(['coraza', () => cq(config.CORAZA_DEV_DB_ID)]);
 
+      const results = await parallelSafe(fetches.map(([, fn]) => fn), 8000);
+      const resultMap = {};
+      fetches.forEach(([name], i) => { resultMap[name] = results[i]; });
+
+      if (resultMap.finances) allLines.push(...buildFinancesLines(resultMap.finances));
+      if (resultMap.tasks) allLines.push(...buildTasksLines(resultMap.tasks));
+      if (resultMap.agenda) allLines.push(...buildAgendaLines(resultMap.agenda));
+      if (resultMap.crm) allLines.push(...buildCRMLines(resultMap.crm));
+      if (resultMap.coraza) allLines.push(...buildCorazaLines(resultMap.coraza));
+    }
   } catch (e) {
     logger.error(`[Context Error]: ${e.message}`);
   }
-  return lines.join('\n');
+
+  return allLines.join('\n');
 }
 
 module.exports = { buildContext };
