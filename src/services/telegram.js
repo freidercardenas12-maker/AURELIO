@@ -93,12 +93,16 @@ async function editMsgText(messageId, text, replyMarkup = null) {
 const EXECUTIVE_INLINE_KEYBOARD = {
   inline_keyboard: [
     [
-      { text: '📄 Generar PDF', callback_data: 'cb_reporte' },
-      { text: '📅 Mi Agenda', callback_data: 'cb_agenda' }
+      { text: '📁 🥩 CHORIZOS', callback_data: 'cb_chorizos' },
+      { text: '📁 🛡️ CORAZA CTA', callback_data: 'cb_coraza' }
     ],
     [
-      { text: '💰 Saldo de Caja', callback_data: 'cb_caja' },
-      { text: '🥩 Despachos', callback_data: 'cb_chorizos' }
+      { text: '📁 💰 FINANZAS', callback_data: 'cb_caja' },
+      { text: '📁 📅 AGENDA', callback_data: 'cb_agenda' }
+    ],
+    [
+      { text: '📁 📄 INFORME PDF', callback_data: 'cb_reporte' },
+      { text: '📁 🟢 STATUS', callback_data: 'cb_status' }
     ]
   ]
 };
@@ -296,7 +300,8 @@ async function pollTelegram(onMessage, onVoice, onPhoto) {
           'cb_agenda': '/agenda',
           'cb_caja': '/caja',
           'cb_chorizos': '/clientes',
-          'cb_coraza': '/coraza'
+          'cb_coraza': '/coraza',
+          'cb_status': '/status'
         };
         const cmd = cbMap[cb.data] || '/ayuda';
         await onMessage(cmd);
