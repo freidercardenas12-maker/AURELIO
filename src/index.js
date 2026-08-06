@@ -401,11 +401,16 @@ async function main() {
   await registerBotCommands();
   startJobs();
 
-  // Start Self-Healing Process Watchdog & AI Warm-Up Pinger
+  // Start Self-Healing Process Watchdog, AI Warm-Up, Network Guard & Memory Guard
   const { startAutoHealer } = require('./utils/autoHealer');
   const { startWarmupPinger } = require('./services/warmup');
+  const { startNetworkGuard } = require('./utils/networkGuard');
+  const { startMemoryGuard } = require('./utils/memoryGuard');
+
   startAutoHealer(3000, 30000);
   startWarmupPinger(4 * 60 * 1000);
+  startNetworkGuard(20000);
+  startMemoryGuard(60000);
 
   setInterval(() => {
     pollTelegram(
